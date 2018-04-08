@@ -1,233 +1,129 @@
-Date,Description,Species,City,State
-"May 15, 2017
-Tacoma, WA",A diver was bitten on the finger by a sandbar shark while he was performing...,Marine,Tacoma,WA
-"Mar 05, 2017
-New Orleans, LA","Praline, a female gorilla, threw a block of wood at a crowd of spectators. It...",Primate,New Orleans,LA
-"Dec 13, 2016
-Miami, FL",A male Sumatran tiger named Berani bit off the tip of a zookeeper's finger when...,Big Cat,Miami,FL
-"Apr 15, 2016
-Palm Beach, FL",A 13-year-old Malayan tiger named Hati attacked and killed a zookeeper named...,Big Cat,Palm Beach,FL
-"Nov 02, 2015
-Omaha, NE",An intoxicated woman sneaked into a zoo to pet a tiger and was bitten. The woman...,Big Cat,Omaha,NE
-"Sep 10, 2015
-Fort Worth, TX","An elephant calf injured a zookeeper in September, and emergency responders...",Elephant,Fort Worth,TX
-"Aug 12, 2015
-Oklahoma City, OK",A zookeeper at the OK City Zoo was stung by a cownose stingray at the Stingray...,Marine,Oklahoma City,OK
-"Jun 01, 2015
-Omaha, NE",A Komodo Dragon bit a caretaker at the Omaha Zoo. The caretaker was taken to...,Reptile,Omaha,NE
-"Oct 10, 2014
-Little Rock, AR","A 3-year-old child fell into the jaguar exhibit. Two cats attacked him, and...",Big Cat,Little Rock,AR
-"Oct 07, 2014
-St. Paul, MN",A 23-year-old man named Brian Casey Phillips climbed a guardrail at the zoo...,Small Cat,St. Paul,MN
-"Aug 23, 2014
-Dallas, TX",A zookeeper was bitten and scratched by a female lion during a routine transfer...,Big Cat,Dallas,TX
-"Aug 17, 2014
-Madison, WI",A California woman visiting the Henry Vilas Zoo in Wisconsin climbed into a...,Other,Madison,WI
-"Dec 02, 2013
-Duluth, MN",A zoo-keeper was bitten by a tiger at the Lake Superior Zoo when the food slipped...,Big Cat,Duluth,MN
-"Aug 29, 2013
-Denver, CO",A woman was bitten by a black rhinoceros at the Denver Zoo while participating...,Other,Denver,CO
-"Sep 21, 2012
-Bronx, NY",A man jumped from a monorail at the Bronx Zoo and landed in the tiger habitat...,Big Cat,Bronx,NY
-"Apr 04, 2012
-Sonoma County, CA",An animal handler working for Safari West was gored by a Cape buffalo when she...,Other,Sonoma County,CA
-"Mar 19, 2012
-Buffalo, NY","A 400-pound adult male gorilla escaped his cage at the Buffalo Zoo, biting a...",Primate,Buffalo,NY
-"May 13, 2011
-Wichita, KS",A first-grader on a field trip to the Sedgwick County Zoo was mauled by a leopard...,Big Cat,Wichita,KS
-"Mar 15, 2011
-San Diego, CA",A female giant panda wandered out of its enclosure at the San Diego Zoo and...,Bear,San Diego,CA
-"Jan 21, 2011
-Scottsbluff, NE",Two chimpanzees at the Riverside Discovery Center in Scottsbluff bit off two...,Primate,Scottsbluff,NE
-"Jul 01, 2010
-Toledo, OH","Toledo Zoo's star elephant, Babie Louie, a 7-year-old African elephant, attacks...",Elephant,Toledo,OH
-"May 18, 2010
-St. Paul, MN",Father lifts his 2-yr-old son over a railing near a wire mesh fence surrounding...,Big Cat,St. Paul,MN
-"Mar 05, 2010
-Chicago, IL","47-year-old grandmother ignores warning signs, puts hand through fencing to...",Bear,Chicago,IL
-"Jan 31, 2010
-Bakersfield, CA",30-year-old father and his 8-year-old daughter are attacked by a raccoon who...,Other,Bakersfield,CA
-"Sep 13, 2009
-Scottsbluff, NE",A spider monkey bit a zookeeper and evaded would-be captors for several hours...,Primate,Scottsbluff,NE
-"Jun 15, 2009
-San Diego, CA",A trainer was hospitalized and treated for minor injuries after being bitten...,Marine,San Diego,CA
-"Jun 12, 2009
-Columbia, SC",A gorilla briefly escaped his enclosure at the Riverbank Zoo and Garden and...,Primate,Columbia,SC
-"May 24, 2009
-Memphis, TN",A zookeeper suffered a serious bite to his upper right calf when he came in...,Big Cat,Memphis,TN
-"Feb 11, 2009
-Omaha, NB",A veterinarian at the Henry Doorly Zoo was bitten by a sedated tiger and was...,Big Cat,Omaha,NB
-"Aug 22, 2008
-Cincinnati, OH",A 37-year-old gibbon named Euell escaped from the zoo and bit a man in the parking...,Primate,Cincinnati,OH
-"May 24, 2008
-South Bend, IN","At the Potawatomi Zoo, an Amur Leopard attacked a zookeeper in the exhibit's...",Big Cat,South Bend,IN
-"May 24, 2008
-Detroit, MI",An animal handler was taken to the hospital for stitches after being scratched...,Big Cat,Detroit,MI
-"May 18, 2008
-Calgary, AB",Visitors to the Calgary Zoo's Elephant Crossing facility watched as a 33-year-old...,Elephant,Calgary,AB
-"May 11, 2008
-Toledo, OH",A zookeeper at the Toledo Zoo was injured by one of the tigers in its Tiger...,Big Cat,Toledo,OH
-"Mar 18, 2008
-Washington, DC",A zookeeper at the National Zoo was taken to the hospital and treated for a...,undefined,Washington,DC
-"Feb 10, 2008
-Palm Beach, FL","A 300-pound, 3-year-old Malayan tiger named Mata bit the finger of a zookeeper...",Big Cat,Palm Beach,FL
-"Dec 25, 2007
-San Francisco, CA","Tatiana, a Siberian tiger, escaped from her enclosure at the San Francisco Zoo....",Big Cat,San Francisco,CA
-"Nov 01, 2007
-Jacksonville, FL","A worker at the Jacksonville Zoowas hospitalized after being rammed by a 2-year-old,...",Other,Jacksonville,FL
-"Jul 14, 2007
-San Antonio, TX",A zookeeper at the San Antonio Zoo was attacked and critically injured by a...,Big Cat,San Antonio,TX
-"May 05, 2007
-Omaha, NE",A 5-year-old boy was bitten by a meerkat at the Henry Doorly Zoo. This was the...,Other,Omaha,NE
-"Apr 11, 2007
-San Diego, CA",A 35 year old trainer at SeaWorld suffered minor injuries when a killer whale...,Marine,San Diego,CA
-"Mar 06, 2007
-San Diego, CA","Ikela, a 15-year-old pregnant bonobo, bit off the tip of a zookeeperâ€™s index...",Primate,San Diego,CA
-"Dec 22, 2006
-San Francisco, CA","A 350-pound, 3-year-old Siberian tiger named Tatiana attacked and injured a...",Big Cat,San Francisco,CA
-"Nov 29, 2006
-San Diegod, CA","A trainer at SeaWorld San Diego, Ken Peters, was hospitalized with a broken...",Marine,San Diego,CA
-"Nov 15, 2006
-San Diego, CA","Orkid, a 5,900 pound killer whale performing at SeaWorld San Diego grabbed senior...",Marine,San Diego,CA
-"Nov 13, 2006
-Gulf Breeze, FL",A zookeeper at The Zoo of Northwest Florida was injured by a 2-year-old leopard...,Big Cat,Gulf Breeze,FL
-"Oct 16, 2006
-Fleetwood, NC",A woman was bitten after crossing a barrier fence and putting her arm into a...,Big Cat,Fleetwood,NC
-"Aug 20, 2006
-Orlando, FL",A 7-year-old boy was bitten on the hand while petting a dolphin at Sea Worldâ€™s...,Marine,Orlando,FL
-"Aug 02, 2006
-Oralndo, FL",A 6-year old Georgia boy was bitten by a dolphin at SeaWorld Orlando's dolphin-petting...,Marine,Orlando,FL
-"Aug 02, 2006
-Apple Valley, MN","A 9-year-old girl was bitten when she ignored warning signs, climbed over a...",Other,Apple Valley,MN
-"Jul 17, 2006
-Portland, OR",A toddler attacked by a free-ranging peacock at the Oregon Zoo suffered scratches...,Other,Portland,OR
-"Mar 02, 2006
-Waco, TX",A 25-year-old woman was injured by an elephant when she climbed past barriers...,Elephant,Waco,TX
-"Feb 15, 2006
-Birmingham, AL",A worker at the Birmingham Zoo was treated for scalp wounds after being attacked...,Big Cat,Birmingham,AL
-"Feb 03, 2006
-Columbus, OH","A zookeeper at the Columbus Zoo lost her fingertip when Toby, an adult male...",Primate,Columbus,OH
-"Jul 05, 2005
-Chicago, IL",A 450-pound male silverback gorilla named Kwan bit a zoo worker at Lincoln Park...,Primate,Chicago,IL
-"Jan 26, 2005
-Sioux Falls, SD",A Siberian tiger at the Great Plains Zoo attacked a zoo visitor after he stuck...,Big Cat,Sloux Falls,SD
-"Sep 09, 2004
-Chicago, IL",The master keeper at the Lincoln Park Zoo was in serious condition with multiple...,Big Cat,Chicago,IL
-"Jun 01, 2004
-Vallejo, CA","An elephant trainer at Six Flags Marine World was gored by Misha, a 23-year-old...",Elephant,Vallejo,CA
-"Mar 18, 2004
-Dallas, TX","Jabari, a 13-year-old western lowland gorilla, escaped from his two-acre enclosure...",Primate,Dallas,TX
-"Feb 05, 2004
-St. Louis, MO",A 200-pound bear attacked a St. Louis Zoo employee during a routine transfer...,Bear,St. Louis,MO
-"Feb 02, 2004
-San Diego, CA",A poisonous snake bit a zookeeperâ€™s hand while the handler wass cleaning the...,Reptile,San Diego,CA
-"Nov 12, 2003
-Brookfield, IL",A woman jumped the fence at the Brookfield Zoo to reach into the gray wolfâ€™s...,Other,Brookfield,IL
-"Nov 11, 2003
-Palm Desert, CA","Sabi, a 2-year-old, 90-pound female cheetah at Living Desert Zoo & Gardens,...",Big Cat,Palm Desert,CA
-"Sep 30, 2003
-Miami, FL","Thelma, a 20-year-old, 150-pound orangutan, bit the veterinarianâ€™s hand at...",Primate,Miami,FL
-"Sep 28, 2003
-Boston, MA","Little Joe, a 5-foot-tall, 300-pound gorilla, escaped from his cage at the Franklin...",Primate,Boston,MA
-"Jul 27, 2003
-Fort Wayne, IN",A monkey bit the hand of a female employee of the Fort Wayne Childrenâ€™s Zoo....,Primate,Fort Wayne,IN
-"Jul 20, 2003
-Indianapolis, IN","A trainer required surgery on the left leg after being injured by Ivory, an...",Elephant,Indianapolis,IN
-"Jun 30, 2003
-San Diego, CA",A 2-year-old boy was injured at the Petting Kraal in the San Diego Zoo's Wild...,Other,San Diego,CA
-"May 01, 2003
-St. Louis, MO","(May through July, 2003) Gentoo penguins regularly escaped by launching themselves...",Other,St. Louis,MO
-"Mar 23, 2003
-Sacramento, CA","Castro, a 325-pound Sumatran tiger at the Sacramento Zoo, attacked a 30-year-old...",Big Cat,Sacramento,CA
-"Mar 13, 2003
-Tampa, FL",A shark at the Florida Aquarium bit a woman who put her hand into the shark...,Marine,Tampa,FL
-"Jan 04, 2003
-Columbus, OH",A Suphan cobra bit a zookeeper at the Columbus Zoo and Aquarium while being...,Reptile,Columbus,OH
-"Dec 15, 2002
-Miami, FL",A 20-year-old female elephant at the Miami Metrozoo knocked down a 31-year-old...,Elephant,Miami,FL
-"Sep 05, 2002
-Escondido, CA","A 200-pound west Caucasian tur, a rare and endangered goat, gored a zookeeper...",Other,Escondido,CA
-"May 12, 2002
-Tampa, FL",A 350-pound African lion ripped the arm off a 21-year-old Busch Gardens zookeeper...,Big Cat,Tampa,FL
-"Apr 02, 2002
-Honolulu, HI",A part-time zookeeper trainee woman was cleaning the sleeping area of two Siamang...,Primate,Honolulu,HI
-"Feb 02, 2002
-Miami, FL","While being led to a holding pen at the Miami Metrozoo, a 1,400-pound camel...",Other,Miami,FL
-"Dec 02, 2001
-Bloomington, IL",A 32-year-old visitor at the Miller Park Zoo climbed a 4-foot fence to pet a...,Big Cat,Bloomington,IL
-"Jun 10, 2001
-Denver, CO","Frightened by a falling water drum, an elephant ran out of the bathing area...",Elephant,Denver,CO
-"Jun 09, 2001
-Los Angeles, CA","A komodo dragon bit and crushed the big toe of Phil Bronstein, executive editor...",Reptile,Los Angeles,CA
-"Aug 12, 2000
-Boise, ID",A tiger slipped through a cage door and mauled a woman attending a fundraiser...,Big Cat,Boise,ID
-"Jul 24, 2000
-Dallas, TX",A chimpanzee at the Dallas Zoo escaped from her enclosure and attacked a zookeeper...,Primate,Dallas,TX
-"Jun 01, 2000
-Bloomington, IL","A man jumped the fence to an outdoor snow leopard exhibit, stuck his hand through...",Big Cat,Bloomington,IL
-"Dec 22, 1999
-Madison, WI",An elephant at the Henry Vilas Zoo attacked a zookeeper and veterinarian while...,Elephant,Madison,WI
-"Oct 30, 1999
-Buffalo, NY",A clouded leopard at the Buffalo Zoo bit and clawed a seasonal zookeeper who...,Big Cat,Buffalo,NY
-"Nov 30, 1998
-San Diego, CA","A performing killer whale at SeaWorld San Diego, tried to bite a trainer during...",Marine,San Diego,CA
-"Nov 30, 1998
-San Diego, CA","Kasatka, a performing killer whale at SeaWorld San Diego, tried to bite a trainer...",Marine,San Diego,CA
-"Nov 09, 1998
-Indianapolis, IN","An elephant at the Indianapolis Zoo bludgeoned a zookeeper with her trunk, breaking...",Elephant,Indianapolis,IN
-"Sep 28, 1998
-Dallas, TX","A 340-pound gorilla escaped from his room at the Dallas Zoo, raided the kitchen,...",Primate,Dallas,TX
-"Sep 20, 1998
-Oklahoma City, OK",A tapir (a large hoglike animal) pulled an Oklahoma City Zoo keeper into her...,Other,Oklahoma City,OK
-"Jul 31, 1998
-Vallejo, CA","A tiger mauled a woman tourist during a photo shoot at Marine World, seriously...",Big Cat,Vallejo,CA
-"Jul 09, 1998
-Madison, WI","Two elephants at the Henry Vilas Zoo injured a zookeeper by picking him up,...",Elephant,Madison,WI
-"Oct 20, 1996
-Los Angeles, CA",An elephant attacked an assistant trainer during a training exercise at the...,Elephant,Los Angeles,CA
-"Jul 27, 1996
-Cincinnati, OH",A Bengal tiger from the Cincinnati Zoo mauled the 7-year-old daughter of the...,Big Cat,Cincinnati,OH
-"Jan 05, 1996
-Vallejo, CA",Two trainers at Marine World wild animal park were slightly injured when the...,Big Cat,Vallejo,CA
-"Dec 18, 1995
-Fort Worth, TX",A Sumatran tiger burst through a chain-link fence and attacked an animal handler...,Big Cat,Fort Worth,TX
-"Nov 11, 1995
-Memphis, TN",Two tigers mauled a man who entered their enclosure at the Memphis Zoo.,Big Cat,Memphis,TN
-"Sep 01, 1995
-Bloomington, IL",A man climbed the fence to the snow leopard exhibit at the Miller Park Zoo to...,Big Cat,Bloomington,IL
-"Aug 06, 1995
-Phoenix, AZ",A mountain lion at the Phoenix Zoo gashed a 5-year-oldâ€™s arm after he wandered...,Big Cat,Phoenix,AZ
-"Dec 29, 1994
-Scottsbluff, NE","A leopard attacked a zookeeper at the Riverside Zoo, causing serious injuries...",Big Cat,Scottsbluff,NE
-"Oct 11, 1994
-San Diego, CA",San Diego Zoo animal trainer Joan Embery suffered deep gashes on her face while...,Big Cat,San Diego,CA
-"Jun 30, 1994
-Louisville, KY",An elephant used for giving rides at the Louisville Zoological Gardens escaped...,Elephant,Louisville,KY
-"Apr 04, 1994
-Jackson, MS",A cheetah at the Jackson Zoo scaled the fence and pounced on an 8-year-old boy....,Big Cat,Jackson,MS
-"Feb 24, 1994
-Chicago, IL",An elephant handler suffered serious injuries when she slipped under an elephant...,Elephant,Chicago,IL
-"Jan 30, 1994
-Cleveland, OH","An elephant at the Cleveland Zoo lunged at a keeper, gashing his head.",Elephant,Cleveland,OH
-"Dec 12, 1993
-Palm Beach, FL","A lion attacked a worker at Lion Country Safari, inflicting severe puncture...",Big Cat,Palm Beach,FL
-"Sep 02, 1993
-Vallejo, CA",A radio personality doing a show at Marine World was injured when the elephant...,Elephant,Vallejo,CA
-"May 06, 1993
-Bronx, NY",Two lions at the Bronx Zoo mauled a man who climbed into their cage. The man...,Big Cat,Bronx,NY
-"Sep 17, 1992
-Tucson, AZ",A lion cub bit the arm of a 3-year-old girl at the Reid Park Zoo.,Big Cat,Tuscon,AZ
-"Aug 29, 1992
-Indianapolis, IN","Four people, including two children, fell off an elephant giving rides at the...",Elephant,Indianapolis,IN
-"Dec 24, 1991
-Houston, TX",An elephant attacked a trainer at the Houston Zoo and broke his collarbone and...,Elephant,Houston,TX
-"Oct 01, 1990
-Indianapolis, IN",A father and his son fell from an elephant they rode at the Indianapolis Zoo....,Elephant,Indianapolis,IN
-"May 30, 1990
-San Francisco, CA","A leopard at the San Francisco Zoo attacked and mauled a zookeeper, causing...",Big Cat,San Francisco,CA
-"Mar 28, 1990
-Cincinnati, OH","Laurie Stober, a 25-year-old zookeeper was offering a grape to a caged polar...",Bear,Cincinnati,OH
-"Mar 19, 1990
-Loxahatchee, FL",A rampaging elephant named Jo-Jo at Lion Country Safari gored a handler with...,Elephant,Loxahatchee,FL
-"Feb 13, 1990
-San Francisco, CA","An elephant at the San Francisco Zoo pushed an elephant keeper into the moat,...",Elephant,San Francisco,CA
+Date,Description,Species,City,State,Fatal,Provoked
+15-May-17,A diver was bitten on the finger by a sandbar shark while he was performing...,Marine,Tacoma,WA,No,No
+5-Mar-17,"Praline, a female gorilla, threw a block of wood at a crowd of spectators. It...",Primate,New Orleans,LA,No,No
+13-Dec-16,A male Sumatran tiger named Berani bit off the tip of a zookeeper's finger when...,Big Cat,Miami,FL,No,No
+15-Apr-16,A 13-year-old Malayan tiger named Hati attacked and killed a zookeeper named...,Big Cat,Palm Beach,FL,Yes,No
+2-Nov-15,An intoxicated woman sneaked into a zoo to pet a tiger and was bitten. The woman...,Big Cat,Omaha,NE,No,Yes
+10-Sep-15,"An elephant calf injured a zookeeper in September, and emergency responders...",Elephant,Fort Worth,TX,No,No
+12-Aug-15,A zookeeper at the OK City Zoo was stung by a cownose stingray at the Stingray...,Marine,Oklahoma City,OK,No,No
+1-Jun-15,A Komodo Dragon bit a caretaker at the Omaha Zoo. The caretaker was taken to...,Reptile,Omaha,NE,No,No
+10-Oct-14,"A 3-year-old child fell into the jaguar exhibit. Two cats attacked him, and...",Big Cat,Little Rock,AR,No,No
+7-Oct-14,A 23-year-old man named Brian Casey Phillips climbed a guardrail at the zoo...,Small Cat,St. Paul,MN,No,Yes
+23-Aug-14,A zookeeper was bitten and scratched by a female lion during a routine transfer...,Big Cat,Dallas,TX,No,No
+17-Aug-14,A California woman visiting the Henry Vilas Zoo in Wisconsin climbed into a...,Other,Madison,WI,No,Yes
+2-Dec-13,A zoo-keeper was bitten by a tiger at the Lake Superior Zoo when the food slipped...,Big Cat,Duluth,MN,No,No
+29-Aug-13,A woman was bitten by a black rhinoceros at the Denver Zoo while participating...,Other,Denver,CO,No,No
+21-Sep-12,A man jumped from a monorail at the Bronx Zoo and landed in the tiger habitat...,Big Cat,Bronx,NY,No,Yes
+4-Apr-12,An animal handler working for Safari West was gored by a Cape buffalo when she...,Other,Sonoma County,CA,No,No
+19-Mar-12,"A 400-pound adult male gorilla escaped his cage at the Buffalo Zoo, biting a...",Primate,Buffalo,NY,No,No
+13-May-11,A first-grader on a field trip to the Sedgwick County Zoo was mauled by a leopard...,Big Cat,Wichita,KS,No,Yes
+15-Mar-11,A female giant panda wandered out of its enclosure at the San Diego Zoo and...,Bear,San Diego,CA,No,No
+21-Jan-11,Two chimpanzees at the Riverside Discovery Center in Scottsbluff bit off two...,Primate,Scottsbluff,NE,No,No
+1-Jul-10,"Toledo Zoo's star elephant, Babie Louie, a 7-year-old African elephant, attacks...",Elephant,Toledo,OH,No,No
+18-May-10,Father lifts his 2-yr-old son over a railing near a wire mesh fence surrounding...,Big Cat,St. Paul,MN,No,Yes
+5-Mar-10,"47-year-old grandmother ignores warning signs, puts hand through fencing to...",Bear,Chicago,IL,No,Yes
+31-Jan-10,30-year-old father and his 8-year-old daughter are attacked by a raccoon who...,Other,Bakersfield,CA,No,No
+13-Sep-09,A spider monkey bit a zookeeper and evaded would-be captors for several hours...,Primate,Scottsbluff,NE,No,No
+15-Jun-09,A trainer was hospitalized and treated for minor injuries after being bitten...,Marine,San Diego,CA,No,No
+12-Jun-09,A gorilla briefly escaped his enclosure at the Riverbank Zoo and Garden and...,Primate,Columbia,SC,No,No
+24-May-09,A zookeeper suffered a serious bite to his upper right calf when he came in...,Big Cat,Memphis,TN,No,No
+11-Feb-09,A veterinarian at the Henry Doorly Zoo was bitten by a sedated tiger and was...,Big Cat,Omaha,NB,No,No
+22-Aug-08,A 37-year-old gibbon named Euell escaped from the zoo and bit a man in the parking...,Primate,Cincinnati,OH,No,No
+24-May-08,"At the Potawatomi Zoo, an Amur Leopard attacked a zookeeper in the exhibit's...",Big Cat,South Bend,IN,No,No
+24-May-08,An animal handler was taken to the hospital for stitches after being scratched...,Big Cat,Detroit,MI,No,No
+18-May-08,Visitors to the Calgary Zoo's Elephant Crossing facility watched as a 33-year-old...,Elephant,Calgary,AB,No,No
+11-May-08,A zookeeper at the Toledo Zoo was injured by one of the tigers in its Tiger...,Big Cat,Toledo,OH,No,No
+18-Mar-08,A zookeeper at the National Zoo was taken to the hospital and treated for a...,undefined,Washington,DC,No,No
+10-Feb-08,"A 300-pound, 3-year-old Malayan tiger named Mata bit the finger of a zookeeper...",Big Cat,Palm Beach,FL,No,No
+25-Dec-07,"Tatiana, a Siberian tiger, escaped from her enclosure at the San Francisco Zoo....",Big Cat,San Francisco,CA,Yes,No
+1-Nov-07,"A worker at the Jacksonville Zoowas hospitalized after being rammed by a 2-year-old,...",Other,Jacksonville,FL,No,No
+14-Jul-07,A zookeeper at the San Antonio Zoo was attacked and critically injured by a...,Big Cat,San Antonio,TX,No,No
+5-May-07,A 5-year-old boy was bitten by a meerkat at the Henry Doorly Zoo. This was the...,Other,Omaha,NE,No,No
+11-Apr-07,A 35 year old trainer at SeaWorld suffered minor injuries when a killer whale...,Marine,San Diego,CA,No,No
+6-Mar-07,"Ikela, a 15-year-old pregnant bonobo, bit off the tip of a zookeeperâ€™s index...",Primate,San Diego,CA,No,No
+22-Dec-06,"A 350-pound, 3-year-old Siberian tiger named Tatiana attacked and injured a...",Big Cat,San Francisco,CA,No,No
+29-Nov-06,"A trainer at SeaWorld San Diego, Ken Peters, was hospitalized with a broken...",Marine,San Diego,CA,No,No
+15-Nov-06,"Orkid, a 5,900 pound killer whale performing at SeaWorld San Diego grabbed senior...",Marine,San Diego,CA,No,No
+13-Nov-06,A zookeeper at The Zoo of Northwest Florida was injured by a 2-year-old leopard...,Big Cat,Gulf Breeze,FL,No,No
+16-Oct-06,A woman was bitten after crossing a barrier fence and putting her arm into a...,Big Cat,Fleetwood,NC,No,Yes
+20-Aug-06,A 7-year-old boy was bitten on the hand while petting a dolphin at Sea Worldâ€™s...,Marine,Orlando,FL,No,No
+2-Aug-06,A 6-year old Georgia boy was bitten by a dolphin at SeaWorld Orlando's dolphin-petting...,Marine,Orlando,FL,No,No
+2-Aug-06,"A 9-year-old girl was bitten when she ignored warning signs, climbed over a...",Other,Apple Valley,MN,No,Yes
+17-Jul-06,A toddler attacked by a free-ranging peacock at the Oregon Zoo suffered scratches...,Other,Portland,OR,No,No
+2-Mar-06,A 25-year-old woman was injured by an elephant when she climbed past barriers...,Elephant,Waco,TX,No,Yes
+15-Feb-06,A worker at the Birmingham Zoo was treated for scalp wounds after being attacked...,Big Cat,Birmingham,AL,No,No
+3-Feb-06,"A zookeeper at the Columbus Zoo lost her fingertip when Toby, an adult male...",Primate,Columbus,OH,No,No
+5-Jul-05,A 450-pound male silverback gorilla named Kwan bit a zoo worker at Lincoln Park...,Primate,Chicago,IL,No,Yes
+26-Jan-05,A Siberian tiger at the Great Plains Zoo attacked a zoo visitor after he stuck...,Big Cat,Sloux Falls,SD,No,Yes
+9-Sep-04,The master keeper at the Lincoln Park Zoo was in serious condition with multiple...,Big Cat,Chicago,IL,No,No
+1-Jun-04,"An elephant trainer at Six Flags Marine World was gored by Misha, a 23-year-old...",Elephant,Vallejo,CA,No,No
+18-Mar-04,"Jabari, a 13-year-old western lowland gorilla, escaped from his two-acre enclosure...",Primate,Dallas,TX,No,No
+5-Feb-04,A 200-pound bear attacked a St. Louis Zoo employee during a routine transfer...,Bear,St. Louis,MO,No,No
+2-Feb-04,A poisonous snake bit a zookeeperâ€™s hand while the handler wass cleaning the...,Reptile,San Diego,CA,No,No
+12-Nov-03,A woman jumped the fence at the Brookfield Zoo to reach into the gray wolfâ€™s...,Other,Brookfield,IL,No,Yes
+11-Nov-03,"Sabi, a 2-year-old, 90-pound female cheetah at Living Desert Zoo & Gardens,...",Big Cat,Palm Desert,CA,No,No
+30-Sep-03,"Thelma, a 20-year-old, 150-pound orangutan, bit the veterinarianâ€™s hand at...",Primate,Miami,FL,No,No
+28-Sep-03,"Little Joe, a 5-foot-tall, 300-pound gorilla, escaped from his cage at the Franklin...",Primate,Boston,MA,No,No
+27-Jul-03,A monkey bit the hand of a female employee of the Fort Wayne Childrenâ€™s Zoo....,Primate,Fort Wayne,IN,No,No
+20-Jul-03,"A trainer required surgery on the left leg after being injured by Ivory, an...",Elephant,Indianapolis,IN,No,No
+30-Jun-03,A 2-year-old boy was injured at the Petting Kraal in the San Diego Zoo's Wild...,Other,San Diego,CA,No,No
+1-May-03,"(May through July, 2003) Gentoo penguins regularly escaped by launching themselves...",Other,St. Louis,MO,No,No
+23-Mar-03,"Castro, a 325-pound Sumatran tiger at the Sacramento Zoo, attacked a 30-year-old...",Big Cat,Sacramento,CA,No,No
+13-Mar-03,A shark at the Florida Aquarium bit a woman who put her hand into the shark...,Marine,Tampa,FL,No,No
+4-Jan-03,A Suphan cobra bit a zookeeper at the Columbus Zoo and Aquarium while being...,Reptile,Columbus,OH,No,No
+15-Dec-02,A 20-year-old female elephant at the Miami Metrozoo knocked down a 31-year-old...,Elephant,Miami,FL,No,No
+5-Sep-02,"A 200-pound west Caucasian tur, a rare and endangered goat, gored a zookeeper...",Other,Escondido,CA,No,No
+12-May-02,A 350-pound African lion ripped the arm off a 21-year-old Busch Gardens zookeeper...,Big Cat,Tampa,FL,No,No
+2-Apr-02,A part-time zookeeper trainee woman was cleaning the sleeping area of two Siamang...,Primate,Honolulu,HI,No,No
+2-Feb-02,"While being led to a holding pen at the Miami Metrozoo, a 1,400-pound camel...",Other,Miami,FL,No,No
+2-Dec-01,A 32-year-old visitor at the Miller Park Zoo climbed a 4-foot fence to pet a...,Big Cat,Bloomington,IL,No,Yes
+10-Jun-01,"Frightened by a falling water drum, an elephant ran out of the bathing area...",Elephant,Denver,CO,No,No
+9-Jun-01,"A komodo dragon bit and crushed the big toe of Phil Bronstein, executive editor...",Reptile,Los Angeles,CA,No,No
+12-Aug-00,A tiger slipped through a cage door and mauled a woman attending a fundraiser...,Big Cat,Boise,ID,No,No
+24-Jul-00,A chimpanzee at the Dallas Zoo escaped from her enclosure and attacked a zookeeper...,Primate,Dallas,TX,No,No
+1-Jun-00,"A man jumped the fence to an outdoor snow leopard exhibit, stuck his hand through...",Big Cat,Bloomington,IL,No,Yes
+22-Dec-99,An elephant at the Henry Vilas Zoo attacked a zookeeper and veterinarian while...,Elephant,Madison,WI,No,No
+30-Oct-99,A clouded leopard at the Buffalo Zoo bit and clawed a seasonal zookeeper who...,Big Cat,Buffalo,NY,No,No
+30-Nov-98,"A performing killer whale at SeaWorld San Diego, tried to bite a trainer during...",Marine,San Diego,CA,No,No
+9-Nov-98,"An elephant at the Indianapolis Zoo bludgeoned a zookeeper with her trunk, breaking...",Elephant,Indianapolis,IN,No,No
+28-Sep-98,"A 340-pound gorilla escaped from his room at the Dallas Zoo, raided the kitchen,...",Primate,Dallas,TX,No,No
+20-Sep-98,A tapir (a large hoglike animal) pulled an Oklahoma City Zoo keeper into her...,Other,Oklahoma City,OK,No,No
+31-Jul-98,"A tiger mauled a woman tourist during a photo shoot at Marine World, seriously...",Big Cat,Vallejo,CA,No,No
+9-Jul-98,"Two elephants at the Henry Vilas Zoo injured a zookeeper by picking him up,...",Elephant,Madison,WI,No,No
+20-Oct-96,An elephant attacked an assistant trainer during a training exercise at the...,Elephant,Los Angeles,CA,No,No
+27-Jul-96,A Bengal tiger from the Cincinnati Zoo mauled the 7-year-old daughter of the...,Big Cat,Cincinnati,OH,No,No
+5-Jan-96,Two trainers at Marine World wild animal park were slightly injured when the...,Big Cat,Vallejo,CA,No,No
+18-Dec-95,A Sumatran tiger burst through a chain-link fence and attacked an animal handler...,Big Cat,Fort Worth,TX,No,No
+11-Nov-95,Two tigers mauled a man who entered their enclosure at the Memphis Zoo.,Big Cat,Memphis,TN,No,Yes
+1-Sep-95,A man climbed the fence to the snow leopard exhibit at the Miller Park Zoo to...,Big Cat,Bloomington,IL,No,Yes
+6-Aug-95,A mountain lion at the Phoenix Zoo gashed a 5-year-oldâ€™s arm after he wandered...,Big Cat,Phoenix,AZ,No,Yes
+29-Dec-94,"A leopard attacked a zookeeper at the Riverside Zoo, causing serious injuries...",Big Cat,Scottsbluff,NE,No,No
+11-Oct-94,San Diego Zoo animal trainer Joan Embery suffered deep gashes on her face while...,Big Cat,San Diego,CA,No,No
+30-Jun-94,An elephant used for giving rides at the Louisville Zoological Gardens escaped...,Elephant,Louisville,KY,No,No
+4-Apr-94,A cheetah at the Jackson Zoo scaled the fence and pounced on an 8-year-old boy....,Big Cat,Jackson,MS,No,No
+24-Feb-94,An elephant handler suffered serious injuries when she slipped under an elephant...,Elephant,Chicago,IL,No,No
+30-Jan-94,"An elephant at the Cleveland Zoo lunged at a keeper, gashing his head.",Elephant,Cleveland,OH,No,No
+12-Dec-93,"A lion attacked a worker at Lion Country Safari, inflicting severe puncture...",Big Cat,Palm Beach,FL,No,No
+2-Sep-93,A radio personality doing a show at Marine World was injured when the elephant...,Elephant,Vallejo,CA,No,No
+6-May-93,Two lions at the Bronx Zoo mauled a man who climbed into their cage. The man...,Big Cat,Bronx,NY,No,Yes
+17-Sep-92,A lion cub bit the arm of a 3-year-old girl at the Reid Park Zoo.,Big Cat,Tuscon,AZ,No,No
+29-Aug-92,"Four people, including two children, fell off an elephant giving rides at the...",Elephant,Indianapolis,IN,No,No
+24-Dec-91,An elephant attacked a trainer at the Houston Zoo and broke his collarbone and...,Elephant,Houston,TX,No,No
+1-Oct-90,A father and his son fell from an elephant they rode at the Indianapolis Zoo....,Elephant,Indianapolis,IN,No,No
+30-May-90,"A leopard at the San Francisco Zoo attacked and mauled a zookeeper, causing...",Big Cat,San Francisco,CA,No,No
+28-Mar-90,"Laurie Stober, a 25-year-old zookeeper was offering a grape to a caged polar...",Bear,Cincinnati,OH,No,No
+19-Mar-90,A rampaging elephant named Jo-Jo at Lion Country Safari gored a handler with...,Elephant,Loxahatchee,FL,No,No
+13-Feb-90,"An elephant at the San Francisco Zoo pushed an elephant keeper into the moat,...",Elephant,San Francisco,CA,No,No
+11-Oct-13,A zookeeper was killed by an elephant at the Dickerson Park Zoo. The man wasÉ,Elephant,Sprinfield,MO,Yes,No
+5-Nov-12,A 2-year old child was killed by African Painted Dogs when he fell into theirÉ,Other,Pittsburgh,PA,Yes,Yes
+14-Jan-11,"An 8,000 lb elephant named Edie at the Knoxville, Tennessee Zoo backed a trainerÉ",Elephant,Knoxville,TN,Yes,No
+24-Apr-10,A veteran trainer at Orlando's SeaWorld was dragged under water to her deathÉ,Marine,Orlando,FL,Yes,No
+24-Feb-07,"A zookeeper at the Denver Zoo died after a 6-year-old jaguar, Jorge, mauledÉ",Big Cat,Denver,CO,Yes,No
+18-Nov-02,An 18-year-old female African elephant knocked her handler to the ground withÉ,Elephant,Pittsburgh,PA,Yes,No
+6-Jul-99,An employee at SeaWorld Orlando found a 27 year old man dead and naked on theÉ,Marine,Orlando,FL,Yes,Yes
+5-Mar-95,Lions killed and partially devoured a woman who entered their enclosure at theÉ,Big Cat,Washington,DC,Yes,Yes
+6-Jun-94,A tiger mauled and killed the senior zookeeper at the Miami Metrozoo when theÉ,Big Cat,Miami,FL,Yes,No
+30-Jul-93,An elephant at the Lowry Park Zoo pinned a keeper to the ground and kicked herÉ,Elephant,Tampa,FL,Yes,No
+15-Dec-92,An elephant keeper at the San Antonio Zoo was killed when an elephant grabbedÉ,Elephant,San Antonio,TX,Yes,No
+14-Mar-91,A keeper at San Diego Zoo's Wild Animal Park was kicked in the head and killedÉ,Elephant,San Diego,CA,Yes,No
+12-Jan-91,An elephant at the Oakland Zoo kicked to death the handler cleaning his pen.,Elephant,Oakland,CA,Yes,No
