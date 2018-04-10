@@ -1,41 +1,5 @@
 /* Obtained color scheme from https://coolors.co/e6eed6-3b0d11-bbc5aa-6a3937-4a5043 */
 
-@font-face { font-family: Aquifer; src: url('Aquifer.otf'); } 
-
-body {
-  margin: 0;
-  background-color: #E6EED6;
-  font-family: 'Aquifer', sans-serif;
-  font-weight: 200;
-  font-size: 17px;
-}
-#map-holder {
-  width: 100vw;
-  height: 120vh;
-}
-svg rect {
-  fill: #E6EED6;   /* map background colour */
-}
-.country{
-  fill: #BBC5AA;   /* country colour */
-  stroke: #4A5043; /* country border colour */
-  stroke-width: 1; /* country border width */
-}
-.country-on{
-  fill: #6A3937;   /* highlight colour for selected country */
-}
-.countryLabel{
-  display: none;   /* hide all country labels by default */
-}
-.countryName{
-  fill: #3B0D11;   /* country label text colour */
-}
-.countryLabelBg{
-  fill: white;   /* country label background colour */
-}
-
-
-/* I wrote this */
 .information {
   display: block;
   height: 200px;
