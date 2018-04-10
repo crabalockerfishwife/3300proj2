@@ -33,3 +33,12 @@ svg rect {
 .countryLabelBg{
   fill: white;   /* country label background colour */
 }
+
+
+/* I wrote this */
+.information {
+  display: block;
+  height: 200px;
+  width: 400px;
+  fill: white;
+}
