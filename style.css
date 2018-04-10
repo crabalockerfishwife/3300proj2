@@ -1,13 +1,17 @@
+/* Obtained color scheme from https://coolors.co/e6eed6-3b0d11-bbc5aa-6a3937-4a5043 */
+
+@font-face { font-family: Aquifer; src: url('Aquifer.otf'); } 
+
 body {
   margin: 0;
   background-color: #E6EED6;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
+  font-family: 'Aquifer', sans-serif;
   font-weight: 200;
   font-size: 17px;
 }
 #map-holder {
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
 }
 svg rect {
   fill: #E6EED6;   /* map background colour */
@@ -27,5 +31,5 @@ svg rect {
   fill: #3B0D11;   /* country label text colour */
 }
 .countryLabelBg{
-  fill: none;   /* country label background colour */
+  fill: white;   /* country label background colour */
 }

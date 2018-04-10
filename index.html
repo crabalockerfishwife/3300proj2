@@ -239,7 +239,8 @@
             .attr("dx", 0)
             .attr("dy", 0)
             .text(function(d) {
-              return d.properties.name;
+              return "Country Name: "+ d.properties.name;
+              return "Other Info: "+"hi";
             })
             .call(getTextBox);
           // add a background rectangle the same size as the text
