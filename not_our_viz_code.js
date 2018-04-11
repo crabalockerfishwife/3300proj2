@@ -2,24 +2,25 @@
       // None of the following is code we wrote! The source is https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee
 
 
-
       // DEFINE VARIABLES
       // Define size of map group
       // Full world map is 2:1 ratio
       // Using 12:5 because we will crop top and bottom of map
-      w = 3000;
-      h = 1250;
+      w = 1000;//2000;
+      h = 800;//2500;
       // variables for catching min and max zoom factors
       var minZoom;
       var maxZoom;
+	  var zoomState;
+	  var buttonGroups;
 
       // DEFINE FUNCTIONS/OBJECTS
       // Define map projection
       var projection = d3
         .geoEquirectangular()
-        .center([0, 15]) // set centre to further North as we are cropping more off bottom of map
+        .center([-85, 5]) // set centre to further North as we are cropping more off bottom of map
         .scale([w / (2 * Math.PI)]) // scale to fit group width
-        .translate([w / 2, h / 2]) // ensure centred in group
+        .translate([w /2, h / 2]) // ensure centred in group
       ;
 
       // Define map path
@@ -72,6 +73,24 @@
         // change zoom transform to min zoom and centre offsets
         svg.call(zoom.transform, d3.zoomIdentity.translate(midX, midY).scale(minZoom));
       }
+	  
+      function zoomOut() {
+        // Define a "minzoom" whereby the "Countries" is as small possible without leaving white space at top/bottom or sides
+        minZoom = Math.max($("#map-holder").width() / w, $("#map-holder").height() / h);
+        // set max zoom to a suitable factor of this value
+        maxZoom = 20 * minZoom;
+        // set extent of zoom to chosen values
+        // set translate extent so that panning can't cause map to move out of viewport
+        zoom
+          .scaleExtent([minZoom, maxZoom])
+          .translateExtent([[0, 0], [w, h]])
+        ;
+        // define X and Y offset for centre of map to be shown in centre of holder
+        midX = ($("#map-holder").width() - minZoom * w) / 2;
+        midY = ($("#map-holder").height() - minZoom * h) / 2;
+        // change zoom transform to min zoom and centre offsets
+        svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(midX, midY).scale(minZoom));
+      }
 
       // zoom to show a bounding box, with optional additional padding as percentage of box size
       function boxZoom(box, centroid, paddingPerc) {
@@ -112,6 +131,8 @@
             zoom.transform,
             d3.zoomIdentity.translate(dleft, dtop).scale(zoomScale)
           );
+		  
+
       }
 
 
@@ -214,6 +235,9 @@
                 d3.selectAll(".country").classed("country-on", false);
                 d3.select("#country" + d.properties.iso_a3).classed("country-on", true);
               boxZoom(path.bounds(d), path.centroid(d), 20);
+			  
+			  
+  		
             });
           // add the text to the label group showing country name
           countryLabels
@@ -223,11 +247,11 @@
             .attr("dx", 0)
             .attr("dy", 0)
             .text(function(d) {
-              return "Country Name: "+ d.properties.name;
+              return d.properties.name;
             })
             .call(getTextBox);
           // add a background rectangle the same size as the text
-          countryLabels
+          /*countryLabels
             .insert("rect", "text")
             .attr("class", "countryLabelBg")
             .attr("transform", function(d) {
@@ -238,10 +262,85 @@
             })
             .attr("height", function(d) {
               return d.bbox.height;
-            });
+            }); */
           initiateZoom();
+		  
+		  
+		  
+		  //BUTTON CODE
+		  //following code taken from: http://www.nikhil-nathwani.com/blog/posts/radio/radio.html
+
+		  var allButtons= svg.append("g")
+		                      .attr("id","allButtons") 
+
+		  //fontawesome button labels
+		  var labels= ['default view'];
+
+		  //groups for each button (which will hold a rect and text)
+          buttonGroups = allButtons.selectAll("g.button")
+                            .data(labels)
+                            .enter()
+		  					.append("g")
+				            .attr("class","button")
+				  			.style("cursor","pointer")           
+                            .on("click",function(d,i) {
+                                zoomOut();
+                            });
+	  
+		  //button width and height
+		  var bWidth= 110; //button width
+		  var bHeight= 20; //button height
+		  var bSpace= 10; //space between buttons
+		  var x0= $("#map-holder").width()*.9; //x offset
+		  var y0= $("#map-holder").height()*.77; //y offset
+
+		  //adding a rect to each button group
+		  //sidenote: rx and ry give the rects rounded corners
+		  buttonGroups.append("rect")
+		              .attr("class","buttonRect")
+		              .attr("width",bWidth)
+		              .attr("height",bHeight)
+		              .attr("x",function(d,i) {
+		                  return x0+(bWidth+bSpace)*i;
+		              })
+		              .attr("y",y0)
+		              .attr("rx",5) 
+		              .attr("ry",5)
+		              .attr("fill","#BBC5AA");
+
+		  //adding text to each button group, centered within the button rect
+		  buttonGroups.append("text")
+		              .attr("class","buttonText")
+		              .attr("font-family","Aquifer")
+		              .attr("x",function(d,i) {
+		                  return x0 + (bWidth+bSpace)*i + bWidth/2;
+		              })
+		              .attr("y",y0+bHeight/2)
+		              .attr("text-anchor","middle")
+		              .attr("dominant-baseline","central")
+		              .attr("fill","#3B0D11")
+		              .text(function(d) {return d;});
+		  
+		  
+					  var defaultColor= "#BBC5AA";
+					  var hoverColor= "#0000ff";
+					  var pressedColor= "#000077";
+				  
+                        
+					  function updateButtonColors(button, parent) {
+					      parent.selectAll("rect")
+					              .attr("fill",defaultColor)
+
+					      button.select("rect")
+					              .attr("fill",pressedColor)
+					  }
+				  
+
+		  
         }
       );
 
   
-      // End of not-our-code section
+ 
+	  
+	  

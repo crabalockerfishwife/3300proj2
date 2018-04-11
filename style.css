@@ -1,8 +1,24 @@
 /* Obtained color scheme from https://coolors.co/e6eed6-3b0d11-bbc5aa-6a3937-4a5043 */
+@font-face { font-family: Aquifer; src: url('Aquifer.otf'); } 
 
 .information {
   display: block;
   height: 200px;
   width: 400px;
   fill: white;
+}
+
+#title{
+	width: 500px;
+	height: 25px;
+	text-align: center;
+	margin: 0 auto; 
+	display: block;
+
+}
+
+#titletext{
+	font-family: 'Aquifer', sans-serif;
+	font-size: 20px;
+	fill: #3B0D11;
 }

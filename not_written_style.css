@@ -9,7 +9,7 @@ body {
 }
 #map-holder {
   width: 100vw;
-  height: 120vh;
+  height: 90vh;
 }
 svg rect {
   fill: #E6EED6;   /* map background colour */
@@ -26,8 +26,9 @@ svg rect {
   display: none;   /* hide all country labels by default */
 }
 .countryName{
-  fill: #3B0D11;   /* country label text colour */
+  fill: #3B0D11;   /* country label text colour #3B0D11; */
 }
 .countryLabelBg{
-  fill: white;   /* country label background colour */
+  fill: #E6EED6;   /* country label background colour */
 }
+
