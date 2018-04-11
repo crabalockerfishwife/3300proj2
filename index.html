@@ -27,6 +27,7 @@
         Colonization and Language
       </p>
     </div>
+
 	
 <div id="map-holder"></div>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -310,7 +311,8 @@
   		                      .attr("id","allButtons") 
 
   		  //fontawesome button labels
-  		  var labels= ['default view'];
+		  //var mag = d3.select("#mag").attr("x", $("#map-holder").width()*.88).attr("y",$("#map-holder").height()*.95);
+  		  var labels= ['zoom out'];
 
   		  //groups for each button (which will hold a rect and text)
             buttonGroups = allButtons.selectAll("g.button")
@@ -347,7 +349,7 @@
   		  //adding text to each button group, centered within the button rect
   		  buttonGroups.append("text")
   		              .attr("class","buttonText")
-  		              .attr("font-family","Aquifer")
+  		              .attr("font-family","Font Awesome")
   		              .attr("x",function(d,i) {
   		                  return x0 + (bWidth+bSpace)*i + bWidth/2;
   		              })
