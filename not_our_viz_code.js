@@ -184,8 +184,32 @@
             .on("click", function(d, i) {
                 d3.selectAll(".country").classed("country-on", false);
                 d3.select(this).classed("country-on", true);
-            boxZoom(path.bounds(d), path.centroid(d), 20);
-            });
+                boxZoom(path.bounds(d), path.centroid(d), 20);
+                
+                //d3.select("#country" + d.properties.iso_a3).append()
+
+                function getClickPositionX(e) {
+                    return e.clientX;
+                }
+
+                function getClickY(e) {
+                    return e.clientY;
+                }
+
+                var tempx = getClickPositionX(d);
+                var tempy = getClickY(d);
+
+                svg.append("line")
+                  .attr("x1", tempx)
+                  .attr("y1", tempy)
+                  .attr("x2", 400)
+                  .attr("y2", 400)
+                  .style("stroke-width", 10)
+                  .style("stroke", "black");
+
+
+
+            })
           // Add a label group to each feature/country. This will contain the country name and a background rectangle
           // Use CSS to have class "countryLabel" initially hidden
           countryLabels = countriesGroup
