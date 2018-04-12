@@ -32,7 +32,8 @@
 	return{
 		countryName: lines["Country"],
 		latitude : lines["Latitude (average)"],
-		longitude: lines["Longitude (average)"]
+		longitude: lines["Longitude (average)"],
+		iso3code: lines ["Alpha-3 Code"]
 	};
 }
 
@@ -202,7 +203,8 @@
                 //d3.select("#country" + d.properties.iso_a3).append()
 					
 				d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
-
+					latLongData = data;
+					
                 function getClickPositionX(e) {
                     return e.clientX;
                 }
