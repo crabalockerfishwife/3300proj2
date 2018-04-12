@@ -27,6 +27,14 @@
         .geoPath()
         .projection(projection)
       ;
+	  
+	  function parseLatLongData(lines){
+	return{
+		countryName: lines["Country"],
+		latitude : lines["Latitude (average)"],
+		longitude: lines["Longitude (average)"]
+	};
+}
 
       // Create function to apply zoom to countriesGroup
       function zoomed() {
@@ -182,11 +190,18 @@
             })
             // add an onclick action to zoom into clicked country
             .on("click", function(d, i) {
-                d3.selectAll(".country").classed("country-on", false);
-                d3.select(this).classed("country-on", true);
-                boxZoom(path.bounds(d), path.centroid(d), 20);
-                
+				
+				if (d.properties.name != "United Kingdom" && d.properties.name != "France" && d.properties.name != "Spain" && d.properties.name != "Portugal"
+				&& d.text != "United Kingdom" && d.text != "France" && d.text != "Spain" && d.text != "Portugal") {
+                	d3.selectAll(".country").classed("country-on", false);
+                	d3.select(this).classed("country-on", true);
+                	boxZoom(path.bounds(d), path.centroid(d), 20);
+				}
+				
+				else {
                 //d3.select("#country" + d.properties.iso_a3).append()
+					
+				d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
 
                 function getClickPositionX(e) {
                     return e.clientX;
@@ -196,8 +211,8 @@
                     return e.clientY;
                 }
 
-                var tempx = getClickPositionX(d);
-                var tempy = getClickY(d);
+                var tempx = getClickPositionX(this);
+                var tempy = getClickY(this);
 
                 svg.append("line")
                   .attr("x1", tempx)
@@ -206,10 +221,9 @@
                   .attr("y2", 400)
                   .style("stroke-width", 10)
                   .style("stroke", "black");
-
-
-
-            })
+			  });
+		  }
+            });
           // Add a label group to each feature/country. This will contain the country name and a background rectangle
           // Use CSS to have class "countryLabel" initially hidden
           countryLabels = countriesGroup
@@ -235,9 +249,38 @@
            })
             // add an onlcick action to zoom into clicked country
             .on("click", function(d, i) {
-                d3.selectAll(".country").classed("country-on", false);
-                d3.select("#country" + d.properties.iso_a3).classed("country-on", true);
-              boxZoom(path.bounds(d), path.centroid(d), 20);
+				if (d.properties.iso_a3 != "GBR" && d.properties.iso_a3 != "FRA" && d.properties.iso_a3 != "ESP" && d.properties.iso_a3 != "PRT"
+				&& d.text != "United Kingdom" && d.text != "France" && d.text != "Spain" && d.text != "Portugal") {
+                	d3.selectAll(".country").classed("country-on", false);
+                	d3.select(this).classed("country-on", true);
+                	boxZoom(path.bounds(d), path.centroid(d), 20);
+				}
+				
+				else {
+                //d3.select("#country" + d.properties.iso_a3).append()
+					
+				d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
+
+                function getClickPositionX(e) {
+                    return e.clientX;
+                }
+
+                function getClickY(e) {
+                    return e.clientY;
+                }
+
+                var tempx = getClickPositionX(this);
+                var tempy = getClickY(this);
+
+                svg.append("line")
+                  .attr("x1", tempx)
+                  .attr("y1", tempy)
+                  .attr("x2", 400)
+                  .attr("y2", 400)
+                  .style("stroke-width", 10)
+                  .style("stroke", "black");
+			  });
+		  }
             });
           // add the text to the label group showing country name
           countryLabels
@@ -247,7 +290,7 @@
             .attr("dx", 0)
             .attr("dy", 0)
             .text(function(d) {
-              return "Country Name: "+ d.properties.name;
+              return d.properties.name;
             })
             .call(getTextBox);
           // add a background rectangle the same size as the text
