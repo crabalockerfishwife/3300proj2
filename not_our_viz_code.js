@@ -31,10 +31,19 @@
 	  function parseLatLongData(lines){
 	return{
 		countryName: lines["Country"],
-		latitude : lines["Latitude (average)"],
-		longitude: lines["Longitude (average)"],
-		iso3code: lines ["Alpha-3 Code"]
+		latitude : Number(lines["Latitude (average)"]),
+		longitude: Number(lines["Longitude (average)"]),
+		iso3code: lines["Alpha-3 Code"]
 	};
+}
+
+	function getLine(d) {
+	
+		//dx = d.destination.x - d.origin.x;
+		//dy = d.destination.y - d.origin.y;
+		//dr = Math.sqrt(dx*dx + dy*dy);
+		return 'M' + d[0].x + ',' + d[0].y + ' ' + d[1].x + ',' + d[1].y;
+	
 }
 
       // Create function to apply zoom to countriesGroup
@@ -147,7 +156,11 @@
         .call(zoom)
       ;
 
-
+	d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
+		latLongData = data;
+		
+     
+  
       // get map data
       d3.json(
         "data.geo.json",
@@ -180,7 +193,7 @@
                 d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block");
 
                 // I wrote this
-                svg.append("rect").attr("class", "information").attr("x", "400").attr("y", "400");
+                //svg.append("rect").attr("class", "information").attr("x", "400").attr("y", "400");
 
                 // End of wrote this block
             })
@@ -201,29 +214,20 @@
 				
 				else {
                 //d3.select("#country" + d.properties.iso_a3).append()
+					var origin = [latLongData[71].longitude, latLongData[71].latitude];
+					var destination = [latLongData[8].longitude, latLongData[8].latitude];
+					var connections = [projection(origin), projection(destination)];
 					
-				d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
-					latLongData = data;
+					var line = svg.append("path").attr('d', 
+						 'M' + connections[0][0] + ',' + connections[0][1] + ' ' + connections[1][0] + ',' + connections[1][1]
+					 )
+					.style('stroke', 'black')
+					.style('stroke-width', 2)
+					.style('fill', 'black'); 
 					
-                function getClickPositionX(e) {
-                    return e.clientX;
-                }
-
-                function getClickY(e) {
-                    return e.clientY;
-                }
-
-                var tempx = getClickPositionX(this);
-                var tempy = getClickY(this);
-
-                svg.append("line")
-                  .attr("x1", tempx)
-                  .attr("y1", tempy)
-                  .attr("x2", 400)
-                  .attr("y2", 400)
-                  .style("stroke-width", 10)
-                  .style("stroke", "black");
-			  });
+					
+					
+				
 		  }
             });
           // Add a label group to each feature/country. This will contain the country name and a background rectangle
@@ -311,6 +315,6 @@
           initiateZoom();
         }
       );
-
+  });
   
       // End of not-our-code section
