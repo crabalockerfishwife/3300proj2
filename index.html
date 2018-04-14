@@ -10,6 +10,7 @@
     <meta charset="utf-8" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 
     <!-- Did not write this stylesheet -->
     <link rel = "stylesheet" type = "text/css" href = "not_written_style.css" />
@@ -42,6 +43,7 @@
         // variables for catching min and max zoom factors
         var minZoom;
         var maxZoom;
+        var countryLine;
 		
 
         // DEFINE FUNCTIONS/OBJECTS
@@ -79,8 +81,9 @@
           countriesGroup
             .attr("transform","translate(" + [t.x, t.y] + ")scale(" + t.k + ")")
           ;
-		  
-		  countryLine.attr("transform","translate(" + [t.x, t.y] + ")scale(" + t.k + ")");
+		      if (countryLine != undefined) {
+		      countryLine.attr("transform","translate(" + [t.x, t.y] + ")scale(" + t.k + ")");
+        }
         }
 
         // Define map zoom behaviour
@@ -200,10 +203,16 @@
           // add zoom functionality
           .call(zoom)
         ;
-
+        var latLongData;
   	d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
-  		latLongData = data;
-		
+  		rawlatLongData = data;
+		  latLongData = [];
+      var i = 0;
+      rawlatLongData.forEach(function(){
+        latLongData.push({key: rawlatLongData[i].countryName, value: [rawlatLongData[i].longitude, rawlatLongData[i].latitude]});
+        i++;
+      });
+
      
   
         // get map data
@@ -264,19 +273,72 @@
 					d3.select("#lineGrp").remove();
 					
 					countryLine = svg.append("g").attr("id", "lineGrp");
+
+          if (d.properties.name == "United Kingdom"){
+            var origin = [latLongData[227].value[0], latLongData[227].value[1]];
+            
+            
+
+            var j = 0;
+            var destination;
+            var connections;
+            
+              latLongData.forEach(function(){
+                  if (rulerAmericas.UK.includes(latLongData[j].key)){
+                    destination = [latLongData[j].value[0], latLongData[j].value[1]];
+                    connections = [newScale(origin), newScale(destination)];
+          
+          
+                    countryLine.append("line")
+                    .transition()
+                    .duration(1000)
+                    .attr('x1', connections[0][0])
+                    .attr('y1', connections[0][1])
+                    .attr('x2', connections[1][0])
+                    .attr('y2', connections[1][1])
+                    .style('stroke', 'black')
+                    .style('stroke-width', 2)
+                    .style('fill', 'black')
+                    ;
+                  }
+                  j++;
+                });
+              
+            }
+
+
+
+
+
+
+
+            
+            /*var destination = [latLongData[8].longitude, latLongData[8].latitude];
+            var connections = [newScale(origin), newScale(destination)];
+          
+          
+            countryLine.append("path").attr('d', 
+               'M' + connections[0][0] + ',' + connections[0][1] + ' ' + connections[1][0] + ',' + connections[1][1]
+             )
+            .style('stroke', 'black')
+            .style('stroke-width', 2)
+            .style('fill', 'black'); 
+          
+          
+          */
+          if (d.properties.name == "France"){
+
+          }
+
+          if (d.properties.name == "Spain"){
+
+          }
+
+          if (d.properties.name == "Portugal"){
+
+          }
 					
-  					var origin = [latLongData[71].longitude, latLongData[71].latitude];
-  					var destination = [latLongData[8].longitude, latLongData[8].latitude];
-  					var connections = [newScale(origin), newScale(destination)];
-					
-					
-  					countryLine.append("path").attr('d', 
-  						 'M' + connections[0][0] + ',' + connections[0][1] + ' ' + connections[1][0] + ',' + connections[1][1]
-  					 )
-  					.style('stroke', 'black')
-  					.style('stroke-width', 2)
-  					.style('fill', 'black'); 
-					
+  					
 					
 					
 					

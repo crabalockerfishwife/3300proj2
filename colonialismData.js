@@ -47,6 +47,8 @@ d3.csv("coldata100.csv", parseColonialData, function(error, data){
 		//Now, want to create array of the americas countries
 		d3.csv("AmericanCountries.csv", parseAm, function(error, data){
 			amArr = result;
+
+			amArr[35] = "United States of America";
 		//Now, create new array of ruling countries' children of only americas
 			rulerAmericas = {UK: [], France: [], Portugal: [], Spain: []};
 			var i = 0;
