@@ -22,9 +22,8 @@
 
 <body>
 	
-    <div id="title">
-      <p id="titletext">
-        Colonization and Language
+    <div id="">
+      <p id="">
       </p>
     </div>
 
@@ -56,7 +55,7 @@
         var projection = d3
           .geoEquirectangular()
           .center([-85, 20]) // set centre to further North as we are cropping more off bottom of map
-          .scale([w / (2 * Math.PI)]) // scale to fit group width
+          .scale([w / (1.75 * Math.PI)]) // scale to fit group width
           .translate([w /2, h / 2]) // ensure centred in group
         ;
 
@@ -288,7 +287,7 @@
               })
               .call(getTextBox);
             // add a background rectangle the same size as the text
-            /*countryLabels
+            countryLabels
               .insert("rect", "text")
               .attr("class", "countryLabelBg")
               .attr("transform", function(d) {
@@ -299,7 +298,7 @@
               })
               .attr("height", function(d) {
                 return d.bbox.height;
-              }); */
+              }); 
             initiateZoom();
 		  
 		  
@@ -326,7 +325,7 @@
                               });
 	  
   		  //button width and height
-  		  var bWidth= 110; //button width
+  		  var bWidth= 75; //button width
   		  var bHeight= 20; //button height
   		  var bSpace= 10; //space between buttons
   		  var x0= $("#map-holder").width()*.88; //x offset
@@ -344,7 +343,7 @@
   		              .attr("y",y0)
   		              .attr("rx",5) 
   		              .attr("ry",5)
-  		              .attr("fill","#BBC5AA");
+  		              .attr("fill","#6A3937");
 
   		  //adding text to each button group, centered within the button rect
   		  buttonGroups.append("text")
@@ -356,7 +355,7 @@
   		              .attr("y",y0+bHeight/2)
   		              .attr("text-anchor","middle")
   		              .attr("dominant-baseline","central")
-  		              .attr("fill","#3B0D11")
+  		              .attr("fill","#360C10")
   		              .text(function(d) {return d;});
 		  
 		  
