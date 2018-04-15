@@ -54,7 +54,7 @@
         // Define map projection
         var projection = d3
           .geoEquirectangular()
-          .center([-85, 20]) // set centre to further North as we are cropping more off bottom of map
+          .center([-85, 15]) // set centre to further North as we are cropping more off bottom of map
           .scale([w / (1.75 * Math.PI)]) // scale to fit group width
           .translate([w /2, h / 2]) // ensure centred in group
         ;
@@ -228,7 +228,7 @@
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block");
 
                   // I wrote this
-                  svg.append("rect").attr("class", "information").attr("x", "400").attr("y", "400");
+                  //svg.append("rect").attr("class", "information").attr("x", "400").attr("y", "400");
 
                   // End of wrote this block
               })
@@ -329,7 +329,7 @@
   		  var bHeight= 20; //button height
   		  var bSpace= 10; //space between buttons
   		  var x0= $("#map-holder").width()*.88; //x offset
-  		  var y0= $("#map-holder").height()*.95; //y offset
+  		  var y0= $("#map-holder").height()*.90; //y offset
 
   		  //adding a rect to each button group
   		  //sidenote: rx and ry give the rects rounded corners

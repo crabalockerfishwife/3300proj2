@@ -9,7 +9,7 @@ body {
 }
 #map-holder {
   width: 100vw;
-  height: 90vh;
+  height: 100vh;
 }
 svg rect {
   fill: #F2F5EB;   /* map background colour */
