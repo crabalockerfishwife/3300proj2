@@ -58,7 +58,7 @@
                   }
               }
           }
-          //console.log(americanCountriesWithLang);
+          console.log(americanCountries);
     }
     //Our code to parse the extinct language data
     
@@ -106,10 +106,8 @@
         
         });
       setTimeout(function() { callback(americanCountries, rawExtinctData, americanCountriesWithLang); }, 2000);
-      
     }
     initialDataParsing(populate);
-
 
 
         // None of the following is code we wrote! The source is https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee
@@ -438,7 +436,7 @@
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block").style("z-index", "10");
                    tooltip.style("visibility", "visible");
 
-                  function getLanaguages(){
+                  function getLanguages(){
                       var i;
                       for (i = 0; i < americanCountriesWithLang.length; i++) {
                           if (americanCountriesWithLang[i].key == d.properties.name) {
@@ -454,7 +452,7 @@
                       }
                   }
 
-                  var languages = getLanaguages();
+                  var languages = getLanguages();
 
                   document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>"+languages;
