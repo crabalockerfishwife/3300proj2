@@ -32,11 +32,28 @@
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
 	<script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" ></script>
-    <script src="not_our_viz_code.js"></script><!-- We did not write this code; we made slight modifications to original file -->
     <script>
+
+      // Code to populate the value array (of extinct languages) associated with an American country key
+      function populate(americanCountries, rawExtinctData, americanCountriesWithLang) {
+          var i;
+          for (i = 0; i < americanCountries.length; i++) {
+              //console.log(americanCountries[i]);
+              var j;
+              for (j = 0; j < rawExtinctData.length; j++) {
+                  //console.log(rawExtinctData[j].countriesWithLang.split(", "));
+                  if (rawExtinctData[j].countriesWithLang.split(", ").includes(americanCountries[i])){
+                      americanCountriesWithLang[i].value.push(rawExtinctData[j].language);
+                  }
+              }
+          }
+          //console.log(americanCountriesWithLang);
+    }
+
 
     //Our code to parse the extinct language data
     
+      function initialDataParsing(callback) {
       result = [];
       rawExtinctData = [];
       americanCountriesWithLang = [];
@@ -80,8 +97,15 @@
         
         });
 
+      setTimeout(function() { callback(americanCountries, rawExtinctData, americanCountriesWithLang); }, 2000);
+      
+    }
+
+    initialDataParsing(populate);
+
    
     </script>
-
+    <script src="not_our_viz_code.js"></script><!-- We did not write this code; we made slight modifications to original file -->
+    
 </body>
 </html>

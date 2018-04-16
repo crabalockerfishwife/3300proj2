@@ -199,7 +199,27 @@
               .on("mouseover", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block");
                   tooltip.style("visibility", "visible");
-                  document.getElementById("info").innerHTML = d.properties.iso_a3;
+
+                  function getLanaguages(){
+                      var i;
+                      for (i = 0; i < americanCountriesWithLang.length; i++) {
+                          if (americanCountriesWithLang[i].key == d.properties.name) {
+                            var j;
+                            var output = "";
+                            for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
+                              if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
+                                output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
+                              }
+                            }
+                            return output;
+                          }
+                      }
+                  }
+
+                  var languages = getLanaguages();
+
+                  document.getElementById("info").innerHTML = 
+                    d.properties.name+" ("+d.properties.iso_a3+")"+"<br>&nbspList of extinct langauges: <br>"+languages;
               })
               .on("mouseout", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
