@@ -1,6 +1,5 @@
 // None of the following is code we wrote! The source is https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee
 
-<<<<<<< HEAD
 // We made *slight* changes to the original file linked above
 
         // DEFINE VARIABLES
@@ -32,7 +31,7 @@
           .center([-85, 15]) // set centre to further North as we are cropping more off bottom of map
           .scale([w / (1.75 * Math.PI)]) // scale to fit group width
           .translate([w /2, h / 2]) // ensure centred in group
-=======
+
       // None of the following is code we wrote! The source is https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee
 
 
@@ -88,7 +87,6 @@
         ;
         countriesGroup
           .attr("transform","translate(" + [t.x, t.y] + ")scale(" + t.k + ")")
->>>>>>> pablo
         ;
 
         // Define map path
@@ -225,7 +223,6 @@
           // add zoom functionality
           .call(zoom)
         ;
-<<<<<<< HEAD
 
         // get map data
         d3.json(
@@ -258,7 +255,27 @@
               .on("mouseover", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block");
                   tooltip.style("visibility", "visible");
-                  document.getElementById("info").innerHTML = d.properties.iso_a3;
+
+                  function getLanaguages(){
+                      var i;
+                      for (i = 0; i < americanCountriesWithLang.length; i++) {
+                          if (americanCountriesWithLang[i].key == d.properties.name) {
+                            var j;
+                            var output = "";
+                            for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
+                              if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
+                                output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
+                              }
+                            }
+                            return output;
+                          }
+                      }
+                  }
+
+                  var languages = getLanaguages();
+
+                  document.getElementById("info").innerHTML = 
+                    d.properties.name+" ("+d.properties.iso_a3+")"+"<br>&nbspList of extinct langauges: <br>"+languages;
               })
               .on("mouseout", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
@@ -406,7 +423,6 @@
         );
 
   
-=======
         initiateZoom();
       });
 
@@ -581,7 +597,6 @@
         }
       );
   });
->>>>>>> pablo
   
  
 	  

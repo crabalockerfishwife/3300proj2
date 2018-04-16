@@ -38,6 +38,80 @@
     <script src ="colonialismData.js"></script>
     <script>
 
+
+
+
+// Code to populate the value array (of extinct languages) associated with an American country key
+      function populate(americanCountries, rawExtinctData, americanCountriesWithLang) {
+          var i;
+          for (i = 0; i < americanCountries.length; i++) {
+              //console.log(americanCountries[i]);
+              var j;
+              for (j = 0; j < rawExtinctData.length; j++) {
+                  //console.log(rawExtinctData[j].countriesWithLang.split(", "));
+                  if (rawExtinctData[j].countriesWithLang.split(", ").includes(americanCountries[i])){
+                    try{
+                      americanCountriesWithLang[i].value.push(rawExtinctData[j].language);
+                    } catch(e) {
+
+                    }
+                  }
+              }
+          }
+          //console.log(americanCountriesWithLang);
+    }
+    //Our code to parse the extinct language data
+    
+      function initialDataParsing(callback) {
+      result = [];
+      rawExtinctData = [];
+      americanCountriesWithLang = [];
+      americanCountries = [];
+      
+      function parseExtinctData(line) {
+        return {
+          language: line["Name in English"],
+          countriesWithLang: line["Countries"] 
+        };
+      };
+      
+      function parseAmericanCountries(row) {    
+        result.push(row["Country"]);
+        return result;   
+      };
+      
+      d3.csv("extinctlangs.csv", parseExtinctData, function(error, extinct){
+        rawExtinctData = extinct;
+      });
+        
+      d3.csv("AmericanCountries.csv", parseAmericanCountries, function(error, amer){
+         americanCountries = result;
+         var j = 0;
+         americanCountries.forEach(function(){
+            
+         langArr = [];
+         var k = 0;
+         rawExtinctData.forEach(function() {
+              
+         if (rawExtinctData[k].countriesWithLang.includes(americanCountries[j])){
+            langArr.push(rawExtinctData[k].language);
+          }
+            k++;
+          });
+            
+          americanCountriesWithLang.push({key: americanCountries[j], value: langArr});
+            j++;
+            
+          });
+        
+        });
+      setTimeout(function() { callback(americanCountries, rawExtinctData, americanCountriesWithLang); }, 2000);
+      
+    }
+    initialDataParsing(populate);
+
+
+
         // None of the following is code we wrote! The source is https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee
 
         var tooltip = d3.select("body")
@@ -223,6 +297,8 @@
                         .attr("dominant-baseline","central")
                         .attr("fill","#360C10")
                         .text(function(d) {return d;});
+
+
       
       
                   var defaultColor= "#BBC5AA";
@@ -238,6 +314,7 @@
                               .attr("fill",pressedColor)
                   }
                 }
+
 		
 
         // zoom to show a bounding box, with optional additional padding as percentage of box size
@@ -346,15 +423,34 @@
               // add a mouseover action to show name label for feature/country
               .on("mouseover", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block")
-                  //I wrote this
-                  //svg.append("rect").attr("class", "information").attr("x", "400").attr("y", "400");
+                   tooltip.style("visibility", "visible");
 
-                  // End of wrote this block
+                  function getLanaguages(){
+                      var i;
+                      for (i = 0; i < americanCountriesWithLang.length; i++) {
+                          if (americanCountriesWithLang[i].key == d.properties.name) {
+                            var j;
+                            var output = "";
+                            for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
+                              if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
+                                output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
+                              }
+                            }
+                            return output;
+                          }
+                      }
+                  }
+
+                  var languages = getLanaguages();
+
+                  document.getElementById("info").innerHTML = 
+                    d.properties.name+" ("+d.properties.iso_a3+")"+"<br>&nbspList of extinct langauges: <br>"+languages;
+                    
               })
               .on("mouseout", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
 
-                  d3.select(".information").style("display", "none");
+                  tooltip.style("visibility", "hidden");
               })
               // add an onclick action to zoom into clicked country
               .on("click", function(d, i) {
@@ -787,10 +883,11 @@
     });
 
 
-
-
    
     </script>
+    <script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" ></script>
 
+    <!--<script src="not_our_viz_code.js"></script>--><!-- We did not write this code; we made slight modifications to original file -->
+    
 </body>
 </html>
