@@ -1,13 +1,6 @@
-/* Obtained color scheme from https://coolors.co/e6eed6-3b0d11-bbc5aa-855d5b-4a5043 */
+/* Obtained color schemes from https://coolors.co/e6eed6-3b0d11-bbc5aa-855d5b-4a5043 
+	and https://coolors.co/ffff00-ffaa00-ff5400-ff0000-3b0d11*/
 @font-face { font-family: Aquifer; src: url('Aquifer.otf'); } 
-
-#information {
-	width: 300px;
-	height: 400px;
-	fill: white;
-	stroke: black;
-	display: block;
-}
 
 #title{
 	width: 500px;
@@ -25,5 +18,25 @@
 }
 
 .country-colonized{
-  fill: #855d5b;   /* highlight colour for selected country */
+  	fill: #855d5b;   /* highlight colour for selected country */
+}
+
+.vulnerable {
+	background-color: #FFFF00;
+}
+
+.definitely-endangered {
+	background-color: #FFAA00;
+}
+
+.severely-endangered {
+	background-color: #FF5400;
+}
+
+.critically-endangered {
+	background-color: #FF0000;
+}
+
+.extinct {
+	background-color: #3B0D11;
 }

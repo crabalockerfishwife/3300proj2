@@ -51,7 +51,7 @@
                   //console.log(rawExtinctData[j].countriesWithLang.split(", "));
                   if (rawExtinctData[j].countriesWithLang.split(", ").includes(americanCountries[i])){
                     try{
-                      americanCountriesWithLang[i].value.push(rawExtinctData[j].language);
+                      americanCountriesWithLang[i].value.push(rawExtinctData[j].language+"|"+rawExtinctData[j].vulnerability+"|"+rawExtinctData[j].speakers);
                     } catch(e) {
 
                     }
@@ -71,7 +71,9 @@
       function parseExtinctData(line) {
         return {
           language: line["Name in English"],
-          countriesWithLang: line["Countries"] 
+          countriesWithLang: line["Countries"],
+          vulnerability: line["Degree of endangerment"],
+          speakers: line["Number of speakers"]  
         };
       };
       
@@ -450,7 +452,20 @@
                             var no_languages = true;
                             for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
                               if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
-                                output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
+                                output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j].split("|")[0];
+                                if (americanCountriesWithLang[i].value[j].split("|")[1]=="Vulnerable") {
+                                  output += "&nbsp<text class='vulnerable'>&nbsp</text>&nbsp";
+                                } else if (americanCountriesWithLang[i].value[j].split("|")[1]=="Definitely endangered") {
+                                  output += "&nbsp<text class='definitely-endangered'>&nbsp</text>&nbsp";
+                                } else if (americanCountriesWithLang[i].value[j].split("|")[1]=="Severely endangered") {
+                                  output += "&nbsp<text class='severely-endangered'>&nbsp</text>&nbsp";
+                                } else if (americanCountriesWithLang[i].value[j].split("|")[1]=="Critically endangered") {
+                                  output += "&nbsp<text class='critically-endangered'>&nbsp</text>&nbsp";
+                                } else if (americanCountriesWithLang[i].value[j].split("|")[1]=="Extinct") {
+                                  output += "&nbsp<text class='extinct'>&nbsp</text>&nbsp";
+                                }
+                                output += americanCountriesWithLang[i].value[j].split("|")[2];
+                                output += "<br>";
                               }
                               no_languages = false;
                             }
@@ -771,6 +786,9 @@
 
                   function getLanguages(){
                       var i;
+                      if (["France", "Spain", "United Kingdom", "Portugal"].includes(d.properties.name)){
+                        return "";
+                      }
                       for (i = 0; i < americanCountriesWithLang.length; i++) {
                           if (americanCountriesWithLang[i].key == d.properties.name) {
                             var j;
@@ -778,7 +796,20 @@
                             var no_languages = true;
                             for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
                               if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
-                                output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
+                                output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j].split("|")[0];
+                                if (americanCountriesWithLang[i].value[j].split("|")[1]=="Vulnerable") {
+                                  output += "&nbsp<text class='vulnerable'>&nbsp</text>&nbsp";
+                                } else if (americanCountriesWithLang[i].value[j].split("|")[1]=="Definitely endangered") {
+                                  output += "&nbsp<text class='definitely-endangered'>&nbsp</text>&nbsp";
+                                } else if (americanCountriesWithLang[i].value[j].split("|")[1]=="Severely endangered") {
+                                  output += "&nbsp<text class='severely-endangered'>&nbsp</text>&nbsp";
+                                } else if (americanCountriesWithLang[i].value[j].split("|")[1]=="Critically endangered") {
+                                  output += "&nbsp<text class='critically-endangered'>&nbsp</text>&nbsp";
+                                } else if (americanCountriesWithLang[i].value[j].split("|")[1]=="Extinct") {
+                                  output += "&nbsp<text class='extinct'>&nbsp</text>&nbsp";
+                                }
+                                output += americanCountriesWithLang[i].value[j].split("|")[2];
+                                output += "<br>";
                               }
                               no_languages = false;
                             }
