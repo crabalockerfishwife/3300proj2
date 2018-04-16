@@ -14,6 +14,16 @@
       var zoomState;
       var buttonGroups;
 
+      //Tool tip code used from http://bl.ocks.org/biovisualize/1016860
+       var tooltip = d3.select("body")
+        .append("div")
+        .style("position", "absolute")
+        .style("top", "100px")
+        .style("z-index", "10")
+        .style("visibility", "hidden")
+        .text("")
+        .attr("id", "info");
+
         // DEFINE FUNCTIONS/OBJECTS
         // Define map projection
         var projection = d3
@@ -137,7 +147,6 @@
 
 
 
-
         // on window resize
         $(window).resize(function() {
           // Resize SVG
@@ -158,7 +167,6 @@
           // add zoom functionality
           .call(zoom)
         ;
-
 
         // get map data
         d3.json(
@@ -190,23 +198,20 @@
               // add a mouseover action to show name label for feature/country
               .on("mouseover", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block");
-
-                  // I wrote this
-                  //svg.append("rect").attr("class", "information").attr("x", "400").attr("y", "400");
-
-                  // End of wrote this block
+                  tooltip.style("visibility", "visible");
+                  document.getElementById("info").innerHTML = d.properties.iso_a3;
               })
               .on("mouseout", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
-
-                  d3.select(".information").style("display", "none");
+                  tooltip.style("visibility", "hidden");
               })
               // add an onclick action to zoom into clicked country
               .on("click", function(d, i) {
                   d3.selectAll(".country").classed("country-on", false);
                   d3.select(this).classed("country-on", true);
-              boxZoom(path.bounds(d), path.centroid(d), 20);
-              });
+                  boxZoom(path.bounds(d), path.centroid(d), 20);
+            });
+
             // Add a label group to each feature/country. This will contain the country name and a background rectangle
             // Use CSS to have class "countryLabel" initially hidden
             countryLabels = countriesGroup
@@ -342,7 +347,6 @@
         );
 
   
-
   
  
 	  

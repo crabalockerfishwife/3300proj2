@@ -1,11 +1,12 @@
 /* Obtained color scheme from https://coolors.co/e6eed6-3b0d11-bbc5aa-6a3937-4a5043 */
 @font-face { font-family: Aquifer; src: url('Aquifer.otf'); } 
 
-.information {
-  display: block;
-  height: 200px;
-  width: 400px;
-  fill: white;
+#information {
+	width: 300px;
+	height: 400px;
+	fill: white;
+	stroke: black;
+	display: block;
 }
 
 #title{
