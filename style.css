@@ -1,5 +1,5 @@
 /* Obtained color schemes from https://coolors.co/e6eed6-3b0d11-bbc5aa-855d5b-4a5043 
-	and https://coolors.co/ffff00-ffaa00-ff5400-ff0000-3b0d11*/
+	and https://coolors.co/ffff00-ffbf00-ff7f00-ff0000-3b0d11*/
 @font-face { font-family: Aquifer; src: url('Aquifer.otf'); } 
 
 #title{
@@ -26,11 +26,11 @@
 }
 
 .definitely-endangered {
-	background-color: #FFAA00;
+	background-color: #ffbf00;
 }
 
 .severely-endangered {
-	background-color: #FF5400;
+	background-color: #ff7f00;
 }
 
 .critically-endangered {
