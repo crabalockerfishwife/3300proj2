@@ -345,8 +345,7 @@
               .attr("stroke", "#ff0000")
               // add a mouseover action to show name label for feature/country
               .on("mouseover", function(d, i) {
-                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block");
-
+                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block")
                   //I wrote this
                   //svg.append("rect").attr("class", "information").attr("x", "400").attr("y", "400");
 
