@@ -481,7 +481,8 @@
                       if (["France", "Spain", "United Kingdom", "Portugal"].includes(d.properties.name)){
                         return "";
                       }
-                      for (i = 0; i < americanCountriesWithLang.length; i++) {
+                      
+                      for (j = americanCountriesWithLang[i].value.length-1; j > 0; j--) {
                           if (americanCountriesWithLang[i].key == d.properties.name) {
                             var j;
                             var output = "";
@@ -840,12 +841,12 @@
                       if (["France", "Spain", "United Kingdom", "Portugal"].includes(d.properties.name)){
                         return "";
                       }
-                      for (i = 0; i < americanCountriesWithLang.length; i++) {
+                      for (j = americanCountriesWithLang[i].value.length-1; j > 0; j--) {
                           if (americanCountriesWithLang[i].key == d.properties.name) {
                             var j;
                             var output = "";
                             var no_languages = true;
-                            for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
+                            for (j = americanCountriesWithLang[i].value.length-1; j > 0; j--) {
                               if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
                                 output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j].split("|")[0];
                                 if (americanCountriesWithLang[i].value[j].split("|")[1]=="Vulnerable") {
