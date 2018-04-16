@@ -58,7 +58,7 @@
                   }
               }
           }
-          console.log(americanCountries);
+          //console.log(americanCountries);
     }
     //Our code to parse the extinct language data
     
@@ -442,10 +442,15 @@
                           if (americanCountriesWithLang[i].key == d.properties.name) {
                             var j;
                             var output = "";
+                            var no_languages = true;
                             for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
                               if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
                                 output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
                               }
+                              no_languages = false;
+                            }
+                            if (no_languages) {
+                              return "No languages for this country found in the dataset";
                             }
                             return output;
                           }
@@ -453,6 +458,9 @@
                   }
 
                   var languages = getLanguages();
+                  if (languages == null){
+                    languages = "No languages for this country found in the dataset";
+                  }
 
                   document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>"+languages;
@@ -925,8 +933,6 @@
    
     </script>
     <script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" ></script>
-
-    <!--<script src="not_our_viz_code.js"></script>--><!-- We did not write this code; we made slight modifications to original file -->
     
 </body>
 </html>
