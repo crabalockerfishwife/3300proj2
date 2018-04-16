@@ -116,7 +116,7 @@
         .append("div")
         .style("position", "absolute")
         .style("top", "100px")
-		.style("left", "10px")
+		.style("left", "18px")
         .style("z-index", "10")
         //.style("visibility", "hidden")
 		.style("background-color", "#F2F5EB")
@@ -128,7 +128,7 @@
 		//.style("top", ""+ $("#map-holder").width()*0.05 + "px")
 		//.style("left", "" + $("#map-holder").height()*.5 + "px");
       document.getElementById("info").innerHTML = 
-        "<br> <br> Hover over a country to see <br> a list of vulnerable and <br> extinct languages. <br>  <br> Click on a European country <br> to see what countries it colonized.";
+        "<br> <br>Click on a North or South <br>American country to zoom. <br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages. <br>  <br>Click on a European country <br> to see its colonies. ";
 		
 		
         // DEFINE VARIABLES
@@ -299,7 +299,8 @@
             //adding text to each button group, centered within the button rect
             buttonGroups.append("text")
                         .attr("class","buttonText")
-                        .attr("font-family","Font Awesome")
+                        .attr("font-family","Aquifer")
+						.attr("font-size", 13)
                         .attr("x",function(d,i) {
                             return x0 + (bWidth+bSpace)*i + bWidth/2;
                         })
@@ -450,7 +451,7 @@
                               no_languages = false;
                             }
                             if (no_languages) {
-                              return "No languages for this country found in the dataset";
+                              return "None";
                             }
                             return output;
                           }
@@ -459,8 +460,24 @@
 
                   var languages = getLanguages();
                   if (languages == null){
-                    languages = "No languages for this country found in the dataset";
-                  }
+					  if(d.properties.name == "United Kingdom") {
+                    	languages = "Empire from 1583 - 1997";
+					}
+				  else if (d.properties.name == "France") {
+                  	languages = "Empire from 1534 - 1980";
+				}
+				
+			  	 else if (d.properties.name == "Spain") {
+                	languages = "Empire from 1492 - 1975";
+				}
+		  	  else if (d.properties.name == "Portugal") {
+              	languages = "Empire from 1415 - 1999";
+				}
+				else {
+					languages = "None";
+				}
+				
+			  }
 
                   document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>"+languages;
@@ -470,7 +487,7 @@
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
 
 		        document.getElementById("info").innerHTML = 
-		          "<br> <br> Hover over a country to see <br> a list of vulnerable and <br> extinct languages. <br>  <br> Click on a European country <br> to see what countries it colonized.";
+		          "<br> <br>Click on a North or South <br>American country to zoom. <br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages. <br>  <br>Click on a European country <br> to see its colonies. ";
               })
               // add an onclick action to zoom into clicked country
               .on("click", function(d, i) {
@@ -484,6 +501,10 @@
 				
   				else {
 					zoomOut();
+					
+					
+                  	d3.selectAll(".country").classed("country-on", false);
+                  	d3.select(this).classed("country-on", true);
 					
 					d3.select("#lineGrp").remove();
 					
@@ -678,50 +699,75 @@
               })
               // add mouseover functionality to the label
               .on("mouseover", function(d, i) {
-                  d3.select(this).style("display", "block");
-				  
-                  tooltip.style("visibility", "visible");
+                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block").style("z-index", "10");
+                   tooltip.style("visibility", "visible");
 
-                 function getLanaguages(){
-                     var i;
-                     for (i = 0; i < americanCountriesWithLang.length; i++) {
-                         if (americanCountriesWithLang[i].key == d.properties.name) {
-                           var j;
-                           var output = "";
-                           for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
-                             if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
-                               output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
-                             }
-                           }
-                           return output;
-                         }
-                     }
-                 }
+                  function getLanguages(){
+                      var i;
+                      for (i = 0; i < americanCountriesWithLang.length; i++) {
+                          if (americanCountriesWithLang[i].key == d.properties.name) {
+                            var j;
+                            var output = "";
+                            var no_languages = true;
+                            for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
+                              if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
+                                output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
+                              }
+                              no_languages = false;
+                            }
+                            if (no_languages) {
+                              return "None";
+                            }
+                            return output;
+                          }
+                      }
+                  }
 
-                 var languages = getLanaguages();
+                  var languages = getLanguages();
+                  if (languages == null){
+					  if(d.properties.name == "United Kingdom") {
+                    	languages = "Empire from 1583 - 1997";
+					}
+				  else if (d.properties.name == "France") {
+                  	languages = "Empire from 1534 - 1980";
+				}
+				
+			  	 else if (d.properties.name == "Spain") {
+                	languages = "Empire from 1492 - 1975";
+				}
+		  	  else if (d.properties.name == "Portugal") {
+              	languages = "Empire from 1415 - 1999";
+				}
+				else {
+					languages = "None";
+				}
+				
+			  }
 
-                 document.getElementById("info").innerHTML = 
-                   d.properties.name+"<br> <br>"+languages;
-                   
+                  document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> <br>"+languages;
               })
               .on("mouseout", function(d, i) {
                    d3.select(this).style("display", "none");
 				   
 		         document.getElementById("info").innerHTML = 
-		           "<br> <br> Hover over a country to see <br> a list of vulnerable and <br> extinct languages. <br>  <br> Click on a European country <br> to see what countries it colonized.";
+		           "<br> <br>Click on a North or South <br>American country to zoom. <br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages. <br>  <br>Click on a European country <br> to see its colonies. ";
              })
               // add an onlcick action to zoom into clicked country
               .on("click", function(d, i) {
     				if (d.properties.name != "United Kingdom" && d.properties.name != "France" && d.properties.name != "Spain" && d.properties.name != "Portugal"
     				&& d.text != "United Kingdom" && d.text != "France" && d.text != "Spain" && d.text != "Portugal") {
-                    	d3.selectAll(".country").classed("country-on", false);
-                    	d3.select(this).classed("country-on", true);
+						d3.selectAll(".country").classed("country-on", false);
+						d3.select("#country" + d.properties.iso_a3).classed("country-on", true);
                     	boxZoom(path.bounds(d), path.centroid(d), 20);
     				}
 				
     				else {
                     //d3.select("#country" + d.properties.iso_a3).append()
   					zoomOut();
+					
+					d3.selectAll(".country").classed("country-on", false);
+					d3.select("#country" + d.properties.iso_a3).classed("country-on", true);
 					
   					d3.select("#lineGrp").remove();
 					
