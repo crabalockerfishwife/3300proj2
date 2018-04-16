@@ -118,11 +118,21 @@
         .append("div")
         .style("position", "absolute")
         .style("top", "100px")
+		.style("left", "10px")
         .style("z-index", "10")
-        .style("visibility", "hidden")
-        .text("")
-        .attr("id", "info");
-
+        //.style("visibility", "hidden")
+		.style("background-color", "#F2F5EB")
+        //.text("Colonization and Language <br> <br> Hover over a country to see a list of vulnerable and extinct languages. <br> Click on a European country to see what countries it colonized. ")
+        .attr("id", "info")
+		.style("border-width", "1px")
+		.style("border-color", "#360C10")
+		.style("color", "#360C10")
+		//.style("top", ""+ $("#map-holder").width()*0.05 + "px")
+		//.style("left", "" + $("#map-holder").height()*.5 + "px");
+      document.getElementById("info").innerHTML = 
+        "<br> <br> Hover over a country to see <br> a list of vulnerable and <br> extinct languages. <br>  <br> Click on a European country <br> to see what countries it colonized.";
+		
+		
         // DEFINE VARIABLES
         // Define size of map group
         // Full world map is 2:1 ratio
@@ -140,7 +150,7 @@
         // Define map projection
         var newScale = d3
           .geoEquirectangular()
-          .center([-85, 15]) // set centre to further North as we are cropping more off bottom of map
+          .center([-115, 15]) // set centre to further North as we are cropping more off bottom of map
           .scale([w / (1.75 * Math.PI)]) // scale to fit group width
           .translate([w / 2, h / 2]) // ensure centred in group
         ;
@@ -229,6 +239,8 @@
 		
         function zoomOut() {
           // Define a "minzoom" whereby the "Countries" is as small possible without leaving white space at top/bottom or sides
+			
+			d3.selectAll(".country").classed("country-on", false);
           minZoom = Math.max($("#map-holder").width() / w, $("#map-holder").height() / h);
           // set max zoom to a suitable factor of this value
           maxZoom = 20 * minZoom;
@@ -422,7 +434,7 @@
               .attr("stroke", "#ff0000")
               // add a mouseover action to show name label for feature/country
               .on("mouseover", function(d, i) {
-                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block")
+                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block").style("z-index", "10");
                    tooltip.style("visibility", "visible");
 
                   function getLanaguages(){
@@ -444,13 +456,14 @@
                   var languages = getLanaguages();
 
                   document.getElementById("info").innerHTML = 
-                    d.properties.name+" ("+d.properties.iso_a3+")"+"<br>&nbspList of extinct langauges: <br>"+languages;
+                    d.properties.name+"<br> <br>"+languages;
                     
               })
               .on("mouseout", function(d, i) {
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
 
-                  tooltip.style("visibility", "hidden");
+		        document.getElementById("info").innerHTML = 
+		          "<br> <br> Hover over a country to see <br> a list of vulnerable and <br> extinct languages. <br>  <br> Click on a European country <br> to see what countries it colonized.";
               })
               // add an onclick action to zoom into clicked country
               .on("click", function(d, i) {
@@ -659,9 +672,36 @@
               // add mouseover functionality to the label
               .on("mouseover", function(d, i) {
                   d3.select(this).style("display", "block");
+				  
+                  tooltip.style("visibility", "visible");
+
+                 function getLanaguages(){
+                     var i;
+                     for (i = 0; i < americanCountriesWithLang.length; i++) {
+                         if (americanCountriesWithLang[i].key == d.properties.name) {
+                           var j;
+                           var output = "";
+                           for (j = 0; j < americanCountriesWithLang[i].value.length; j++) {
+                             if (j < 30){ // Set the max number of extinct langauges that can be displayed to 30
+                               output += "&nbsp&nbsp"+americanCountriesWithLang[i].value[j]+"<br>";
+                             }
+                           }
+                           return output;
+                         }
+                     }
+                 }
+
+                 var languages = getLanaguages();
+
+                 document.getElementById("info").innerHTML = 
+                   d.properties.name+"<br> <br>"+languages;
+                   
               })
               .on("mouseout", function(d, i) {
                    d3.select(this).style("display", "none");
+				   
+		         document.getElementById("info").innerHTML = 
+		           "<br> <br> Hover over a country to see <br> a list of vulnerable and <br> extinct languages. <br>  <br> Click on a European country <br> to see what countries it colonized.";
              })
               // add an onlcick action to zoom into clicked country
               .on("click", function(d, i) {
