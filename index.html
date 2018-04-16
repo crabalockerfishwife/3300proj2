@@ -15,7 +15,6 @@
 
     <!-- Did not write this stylesheet -->
     <link rel = "stylesheet" type = "text/css" href = "not_written_style.css" />
-
     <link rel = "stylesheet" type = "text/css" href = "style.css" />
 	<script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 
@@ -23,19 +22,15 @@
 
 
 <body>
-	
-
-	
 <div id="map-holder"></div>
     <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.1/leaflet.js"></script>
-
+	<script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" ></script>
     
-    <script src ="colonialismData.js"></script>
-    <script>
-
-
-
+	<!-- Our code to parse Empire and Colony Data -->
+	<script src ="colonialismData.js"></script>
+    
+	<script>
 
 // Code to populate the value array (of extinct languages) associated with an American country key
       function populate(americanCountries, rawExtinctData, americanCountriesWithLang) {
@@ -47,7 +42,7 @@
                   //console.log(rawExtinctData[j].countriesWithLang.split(", "));
                   if (rawExtinctData[j].countriesWithLang.split(", ").includes(americanCountries[i])){
                     try{
-                      americanCountriesWithLang[i].value.push(rawExtinctData[j].language+"|"+rawExtinctData[j].vulnerability+"|"+rawExtinctData[j].speakers);
+                      		americanCountriesWithLang[i].value.push(rawExtinctData[j].language+"|"+rawExtinctData[j].vulnerability+"|"+rawExtinctData[j].speakers);
                     } catch(e) {
 
                     }
@@ -56,8 +51,8 @@
           }
           //console.log(americanCountries);
     }
+	
     //Our code to parse the extinct language data
-    
       function initialDataParsing(callback) {
       result = [];
       rawExtinctData = [];
@@ -108,7 +103,8 @@
     initialDataParsing(populate);
 
 
-        // None of the following is code we wrote! The source is https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee
+        //The following code was modelled of off: https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee
+		//However we have made extensive changes
 
         var tooltip = d3.select("body")
         .append("div")
@@ -116,28 +112,24 @@
         .style("top", "100px")
 		.style("left", "18px")
         .style("z-index", "10")
-        //.style("visibility", "hidden")
 		.style("background-color", "#F2F5EB")
-        //.text("Colonization and Language <br> <br> Hover over a country to see a list of vulnerable and extinct languages. <br> Click on a European country to see what countries it colonized. ")
         .attr("id", "info")
 		.style("border-width", "1px")
 		.style("border-color", "#360C10")
 		.style("color", "#360C10")
-		//.style("top", ""+ $("#map-holder").width()*0.05 + "px")
-		//.style("left", "" + $("#map-holder").height()*.5 + "px");
+		
       document.getElementById("info").innerHTML = 
         "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br><br><text class='vulnerable'>&nbsp</text> : vulnerable<br><text class='definitely-endangered'>&nbsp</text> : definitely endangered<br><text class='severely-endangered'>&nbsp</text> : severely endangered <br><text class='critically-endangered'>&nbsp</text> : critically endangered<br><text class='extinct'>&nbsp</text> : extinct<br>  <br>Click on a European country <br> to see its colonies.";
 		
 		
         // DEFINE VARIABLES
         // Define size of map group
-        // Full world map is 2:1 ratio
-        // Using 12:5 because we will crop top and bottom of map
         w = 2500;
         h = 1400;
         // variables for catching min and max zoom factors
         var minZoom;
         var maxZoom;
+		//variables for various svg elements
         var countryLine;
         var allButtons;
 		var title;
@@ -159,21 +151,13 @@
         ;
 	  
   	  function parseLatLongData(lines){
-  	return{
-  		countryName: lines["Country"],
-  		latitude : Number(lines["Latitude (average)"]),
-  		longitude: Number(lines["Longitude (average)"]),
-  		iso3code: lines["Alpha-3 Code"]
-  	};
+  		  return{
+  			  countryName: lines["Country"],
+  			  latitude : Number(lines["Latitude (average)"]),
+  			  longitude: Number(lines["Longitude (average)"]),
+  			  iso3code: lines["Alpha-3 Code"]
+  		  };
     }
-
-    // function pathTween() {
-
-    //   var interpolate = d3.scale.quantile().domain([0,1]).range(d3.range(1, 1000))
-    //   return function(t) {
-    //     return line(data.slice(0, interpolate(t)));
-    //   };
-    //   }
 
     function getArc(d) {  
         var dx = d[0][0] - d[1][0];
@@ -187,8 +171,6 @@
 
         // Create function to apply zoom to countriesGroup
         function zoomed() {
-			
-			
           t = d3
             .event
             .transform
@@ -198,7 +180,7 @@
           ;
 		      if (countryLine != undefined) {
 		      countryLine.attr("transform","translate(" + [t.x, t.y] + ")scale(" + t.k + ")");
-        }
+        	}
         }
 
         // Define map zoom behaviour
@@ -218,11 +200,10 @@
 
         // Function that calculates zoom/pan limits and sets zoom to default value 
         function initiateZoom() {
-          // Define a "minzoom" whereby the "Countries" is as small possible without leaving white space at top/bottom or sides
 			
 			d3.selectAll("#header").remove();
 			
-  		title = svg
+  			title = svg
 			.append("text")
 			.attr("id", "header")
           	.attr("x", ($("#map-holder").width() / 2))             
@@ -250,12 +231,11 @@
           drawButton();
         }
 		
-        function zoomOut() {
-          // Define a "minzoom" whereby the "Countries" is as small possible without leaving white space at top/bottom or sides
-			
+        function zoomOut() {	
+		
 			d3.selectAll("#header").remove();
 			
-  		title = svg
+  			title = svg
 			.append("text")
 			.attr("id", "header")
           	.attr("x", ($("#map-holder").width() / 2))             
@@ -288,10 +268,8 @@
 
         function drawButton() {
             d3.select("#allButtons").remove();
-            allButtons= svg.append("g")
-                                .attr("id","allButtons") 
+            allButtons= svg.append("g").attr("id","allButtons") 
 
-          //var mag = d3.select("#mag").attr("x", $("#map-holder").width()*.88).attr("y",$("#map-holder").height()*.95);
             var labels= ['zoom out'];
 
             //groups for each button (which will hold a rect and text)
@@ -305,15 +283,12 @@
                                       zoomOut();
                                   });
     
-            //button width and height
-            var bWidth= 75; //button width
-            var bHeight= 20; //button height
-            var bSpace= 10; //space between buttons
-            var x0= $("#map-holder").width()*.88; //x offset
-            var y0= $("#map-holder").height()*.90; //y offset
+            var bWidth= 75;
+            var bHeight= 20;
+            var bSpace= 10; 
+            var x0= $("#map-holder").width()*.88;
+            var y0= $("#map-holder").height()*.90;
 
-            //adding a rect to each button group
-            //sidenote: rx and ry give the rects rounded corners
             buttonGroups.append("rect")
                         .attr("class","buttonRect")
                         .attr("width",bWidth)
@@ -326,7 +301,7 @@
                         .attr("ry",5)
                         .attr("fill","#6A3937");
 
-            //adding text to each button group, centered within the button rect
+            //adding text
             buttonGroups.append("text")
                         .attr("class","buttonText")
                         .attr("font-family","Aquifer")
@@ -339,21 +314,6 @@
                         .attr("dominant-baseline","central")
                         .attr("fill","#360C10")
                         .text(function(d) {return d;});
-
-
-      
-      
-                  var defaultColor= "#BBC5AA";
-                  var hoverColor= "#0000ff";
-                  var pressedColor= "#000077";
-          
-                        
-                  function updateButtonColors(button, parent) {
-                      parent.selectAll("rect")
-                              .attr("fill",defaultColor)
-
-                      button.select("rect")
-                              .attr("fill",pressedColor)
                   }
                 }
 
@@ -403,9 +363,6 @@
             );
         }
 
-
-
-
         // on window resize
         $(window).resize(function() {
           // Resize SVG
@@ -427,29 +384,25 @@
           .call(zoom)
         ;
 		
-		
-		
+
         var latLongData;
+		
   	d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
   		rawlatLongData = data;
-		  latLongData = [];
-      var i = 0;
-      rawlatLongData.forEach(function(){
+		latLongData = [];
+      	var i = 0;
+      	rawlatLongData.forEach(function(){
         latLongData.push({key: rawlatLongData[i].countryName, value: [rawlatLongData[i].longitude, rawlatLongData[i].latitude]});
         i++;
       });
 
-     
-  
         // get map data
         d3.json(
           "data.geo.json",
           function(json) {
-			  
-			  
-  		
-            //Bind data and create one path per GeoJSON feature
+			 
             countriesGroup = svg.append("g").attr("id", "map");
+			
             // add a background rectangle
             countriesGroup
               .append("rect")
@@ -514,6 +467,8 @@
                   }
 
                   var languages = getLanguages();
+				  
+				  //Right now this functionality is not being implemented on purpose
                   if (languages == null){
 					  if(d.properties.name == "United Kingdom") {
                     	languages = "Empire from 1583 - 1997";
@@ -534,7 +489,7 @@
 				
 			  }
 
-
+			  //Display number speakers for empire countries
           if (d.properties.name == "United Kingdom") {
               document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>English Speakers in the World: 1500000000 <br><br>";
@@ -559,7 +514,7 @@
 		        document.getElementById("info").innerHTML = 
 		          "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br><br><text class='vulnerable'>&nbsp</text> : vulnerable<br><text class='definitely-endangered'>&nbsp</text> : definitely endangered<br><text class='severely-endangered'>&nbsp</text> : severely endangered <br><text class='critically-endangered'>&nbsp</text> : critically endangered<br><text class='extinct'>&nbsp</text> : extinct<br>  <br>Click on a European country <br> to see its colonies.";
               })
-              // add an onclick action to zoom into clicked country
+              // add an onclick action to zoom into clicked country, and add lines to colonies for empire countries
               .on("click", function(d, i) {
 				
   				if (d.properties.name != "United Kingdom" && d.properties.name != "France" && d.properties.name != "Spain" && d.properties.name != "Portugal"
@@ -572,7 +527,6 @@
 			     else {
 					zoomOut();
 					
-					
                   	d3.selectAll(".country").classed("country-on", false);
                   	d3.select(this).classed("country-on", true);
 					
@@ -581,10 +535,8 @@
 					countryLine = svg.append("g").attr("id", "lineGrp");
 
           if (d.properties.name == "United Kingdom"){
+			  
             var origin = [latLongData[227].value[0], latLongData[227].value[1]];
-            
-            
-
             var j = 0;
             var destination;
             var connections;
@@ -608,7 +560,7 @@
                         "Belize" : "#countryBLZ"}
                     var i;
                     for (i = 0; i < rulerAmericas.UK.length; i=i+2){
-                      console.log(rulerAmericas.UK[i]);
+                      //console.log(rulerAmericas.UK[i]);
                        d3.select(name_pairs[rulerAmericas.UK[i]]).classed("country-colonized", true);
                     }
 
@@ -629,11 +581,6 @@
                       };
                     });
                   }
-
-                  //var path = document.querySelector('.path');
-                  //var length = path.getTotalLength();
-
-
                   j++;
                 });
               
@@ -642,9 +589,6 @@
           if (d.properties.name == "France"){
             
             var origin = [latLongData[71].value[0], latLongData[71].value[1]];
-            
-            
-
             var j = 0;
             var destination;
             var connections;
@@ -660,7 +604,7 @@
                       { "Haiti" : "#countryHTI"}
                     var i;
                     for (i = 0; i < rulerAmericas.France.length; i=i+2){
-                      console.log(rulerAmericas.France[i]);
+                      //console.log(rulerAmericas.France[i]);
                        d3.select(name_pairs[rulerAmericas.France[i]]).classed("country-colonized", true);
                     }
 
@@ -681,11 +625,6 @@
                       };
                     });
                   }
-
-                  //var path = document.querySelector('.path');
-                  //var length = path.getTotalLength();
-
-
                   j++;
               });
               
@@ -693,9 +632,6 @@
 
           if (d.properties.name == "Spain"){
             var origin = [latLongData[201].value[0], latLongData[201].value[1]];
-            
-            
-
             var j = 0;
             var destination;
             var connections;
@@ -730,7 +666,7 @@
                         "Uruguay" : "#countryURY"}
                     var i;
                     for (i = 0; i < rulerAmericas.Spain.length; i=i+2){
-                      console.log(rulerAmericas.Spain[i]);
+                      //console.log(rulerAmericas.Spain[i]);
                        d3.select(name_pairs[rulerAmericas.Spain[i]]).classed("country-colonized", true);
                     }
 
@@ -751,11 +687,6 @@
                       };
                     });
                   }
-
-                  //var path = document.querySelector('.path');
-                  //var length = path.getTotalLength();
-
-
                   j++;
               });
               
@@ -763,9 +694,6 @@
 
           if (d.properties.name == "Portugal"){
             var origin = [latLongData[174].value[0], latLongData[174].value[1]];
-            
-            
-
             var j = 0;
             var destination;
             var connections;
@@ -802,11 +730,6 @@
                       };
                     });
                   }
-
-                  //var path = document.querySelector('.path');
-                  //var length = path.getTotalLength();
-
-
                   j++;
               });
   		    }
@@ -873,6 +796,8 @@
                   }
 
                   var languages = getLanguages();
+				  
+				  //This functionality is not being implemented right now on purpose
                   if (languages == null){
 					  if(d.properties.name == "United Kingdom") {
                     	languages = "Empire from 1583 - 1997";
@@ -893,7 +818,7 @@
 				
 			  }
 
-
+			  //Add number of speakers for empire countries
           if (d.properties.name == "United Kingdom") {
               document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>English Speakers in the World: 1500000000 <br><br>";
@@ -918,7 +843,7 @@
 		         document.getElementById("info").innerHTML = 
 		           "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br><br><text class='vulnerable'>&nbsp</text> : vulnerable<br><text class='definitely-endangered'>&nbsp</text> : definitely endangered<br><text class='severely-endangered'>&nbsp</text> : severely endangered <br><text class='critically-endangered'>&nbsp</text> : critically endangered<br><text class='extinct'>&nbsp</text> : extinct<br>  <br>Click on a European country <br> to see its colonies.";
              })
-              // add an onlcick action to zoom into clicked country
+              // add an onlcick action to zoom into clicked country, and lines for empire countries
               .on("click", function(d, i) {
     				if (d.properties.name != "United Kingdom" && d.properties.name != "France" && d.properties.name != "Spain" && d.properties.name != "Portugal"
     				&& d.text != "United Kingdom" && d.text != "France" && d.text != "Spain" && d.text != "Portugal") {
@@ -942,10 +867,8 @@
 					countryLine = svg.append("g").attr("id", "lineGrp");
 
           if (d.properties.name == "United Kingdom"){
+			  
             var origin = [latLongData[227].value[0], latLongData[227].value[1]];
-            
-            
-
             var j = 0;
             var destination;
             var connections;
@@ -969,7 +892,7 @@
                         "Belize" : "#countryBLZ"}
                     var i;
                     for (i = 0; i < rulerAmericas.UK.length; i=i+2){
-                      console.log(rulerAmericas.UK[i]);
+                      //console.log(rulerAmericas.UK[i]);
                        d3.select(name_pairs[rulerAmericas.UK[i]]).classed("country-colonized", true);
                     }
 
@@ -990,11 +913,6 @@
                       };
                     });
                   }
-
-                  //var path = document.querySelector('.path');
-                  //var length = path.getTotalLength();
-
-
                   j++;
                 });
               
@@ -1003,10 +921,7 @@
           if (d.properties.name == "France"){
             
             var origin = [latLongData[71].value[0], latLongData[71].value[1]];
-            
-            
-
-            var j = 0;
+			var j = 0;
             var destination;
             var connections;
             
@@ -1021,7 +936,7 @@
                       { "Haiti" : "#countryHTI"}
                     var i;
                     for (i = 0; i < rulerAmericas.France.length; i=i+2){
-                      console.log(rulerAmericas.France[i]);
+                      //console.log(rulerAmericas.France[i]);
                        d3.select(name_pairs[rulerAmericas.France[i]]).classed("country-colonized", true);
                     }
 
@@ -1042,21 +957,13 @@
                       };
                     });
                   }
-
-                  //var path = document.querySelector('.path');
-                  //var length = path.getTotalLength();
-
-
-                  j++;
+				  j++;
               });
               
           }
 
           if (d.properties.name == "Spain"){
             var origin = [latLongData[201].value[0], latLongData[201].value[1]];
-            
-            
-
             var j = 0;
             var destination;
             var connections;
@@ -1091,7 +998,7 @@
                         "Uruguay" : "#countryURY"}
                     var i;
                     for (i = 0; i < rulerAmericas.Spain.length; i=i+2){
-                      console.log(rulerAmericas.Spain[i]);
+                      //console.log(rulerAmericas.Spain[i]);
                        d3.select(name_pairs[rulerAmericas.Spain[i]]).classed("country-colonized", true);
                     }
 
@@ -1112,11 +1019,6 @@
                       };
                     });
                   }
-
-                  //var path = document.querySelector('.path');
-                  //var length = path.getTotalLength();
-
-
                   j++;
               });
               
@@ -1124,9 +1026,6 @@
 
           if (d.properties.name == "Portugal"){
             var origin = [latLongData[174].value[0], latLongData[174].value[1]];
-            
-            
-
             var j = 0;
             var destination;
             var connections;
@@ -1163,11 +1062,6 @@
                       };
                     });
                   }
-
-                  //var path = document.querySelector('.path');
-                  //var length = path.getTotalLength();
-
-
                   j++;
               });
   		    }
@@ -1187,6 +1081,7 @@
                 return d.properties.name;
               })
               .call(getTextBox);
+			  
             // add a background rectangle the same size as the text
             countryLabels
               .insert("rect", "text")
@@ -1200,10 +1095,9 @@
               .attr("height", function(d) {
                 return d.bbox.height;
               });
+			  
+			  //show initial map view
             initiateZoom();
-
-
-
 
           });
     });
@@ -1211,7 +1105,6 @@
 
    
     </script>
-    <script src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" ></script>
     
 </body>
 </html>
