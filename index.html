@@ -498,8 +498,23 @@
 				
 			  }
 
-                  document.getElementById("info").innerHTML = 
+
+          if (rulerAmericas.UK.includes(d.properties.name)) {
+              document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> English Speakers in the World: 1500000000 <br><br>"+languages;
+          } else if (rulerAmericas.Spain.includes(d.properties.name)) {
+              document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> Spanish Speakers in the World: 500000000 <br><br>"+languages;
+          } else if (rulerAmericas.Portugal.includes(d.properties.name)) {
+              document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> Portuguese Speakers in the World: 220000000 <br><br>"+languages;
+          } else if (rulerAmericas.France.includes(d.properties.name)) {
+              document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> French Speakers in the World: 220000000 <br><br>"+languages;
+          } else {
+                document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>"+languages;
+          }
                     
               })
               .on("mouseout", function(d, i) {
@@ -842,8 +857,23 @@
 				
 			  }
 
-                  document.getElementById("info").innerHTML = 
+             if (rulerAmericas.UK.includes(d.properties.name)) {
+              document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> English Speakers in the World: 1500000000 <br><br>"+languages;
+          } else if (rulerAmericas.Spain.includes(d.properties.name)) {
+              document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> Spanish Speakers in the World: 500000000 <br><br>"+languages;
+          } else if (rulerAmericas.Portugal.includes(d.properties.name)) {
+              document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> Portuguese Speakers in the World: 220000000 <br><br>"+languages;
+          } else if (rulerAmericas.France.includes(d.properties.name)) {
+              document.getElementById("info").innerHTML = 
+                    d.properties.name+"<br> French Speakers in the World: 220000000 <br><br>"+languages;
+          } else {
+                document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>"+languages;
+          }
+          
               })
               .on("mouseout", function(d, i) {
                    d3.select(this).style("display", "none");
