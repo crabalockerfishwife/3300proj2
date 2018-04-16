@@ -24,10 +24,6 @@
 
 <body>
 	
-    <div id="">
-      <p id="">
-      </p>
-    </div>
 
 	
 <div id="map-holder"></div>
@@ -130,7 +126,7 @@
 		//.style("top", ""+ $("#map-holder").width()*0.05 + "px")
 		//.style("left", "" + $("#map-holder").height()*.5 + "px");
       document.getElementById("info").innerHTML = 
-        "<br> <br>Click on a North or South <br>American country to zoom. <br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages. <br>  <br>Click on a European country <br> to see its colonies. ";
+        "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br>  <br>Click on a European country <br> to see its colonies.";
 		
 		
         // DEFINE VARIABLES
@@ -144,13 +140,14 @@
         var maxZoom;
         var countryLine;
         var allButtons;
+		var title;
 		
 
         // DEFINE FUNCTIONS/OBJECTS
         // Define map projection
         var newScale = d3
           .geoEquirectangular()
-          .center([-115, 15]) // set centre to further North as we are cropping more off bottom of map
+          .center([-115, 20]) // set centre to further North as we are cropping more off bottom of map
           .scale([w / (1.75 * Math.PI)]) // scale to fit group width
           .translate([w / 2, h / 2]) // ensure centred in group
         ;
@@ -190,6 +187,8 @@
 
         // Create function to apply zoom to countriesGroup
         function zoomed() {
+			
+			
           t = d3
             .event
             .transform
@@ -220,6 +219,20 @@
         // Function that calculates zoom/pan limits and sets zoom to default value 
         function initiateZoom() {
           // Define a "minzoom" whereby the "Countries" is as small possible without leaving white space at top/bottom or sides
+			
+			d3.selectAll("#header").remove();
+			
+  		title = svg
+			.append("text")
+			.attr("id", "header")
+          	.attr("x", ($("#map-holder").width() / 2))             
+          	.attr("y", "50")
+          	.attr("text-anchor", "middle")  
+          	.style("font-size", "40px") 
+  			.style("font-family", "Aquifer") 
+  			.style("fill", "#360C10")
+          	.text("Language and Colonization");
+			
           minZoom = Math.max($("#map-holder").width() / w, $("#map-holder").height() / h);
           // set max zoom to a suitable factor of this value
           maxZoom = 20 * minZoom;
@@ -239,6 +252,20 @@
 		
         function zoomOut() {
           // Define a "minzoom" whereby the "Countries" is as small possible without leaving white space at top/bottom or sides
+			
+			d3.selectAll("#header").remove();
+			
+  		title = svg
+			.append("text")
+			.attr("id", "header")
+          	.attr("x", ($("#map-holder").width() / 2))             
+          	.attr("y", "50")
+          	.attr("text-anchor", "middle")  
+          	.style("font-size", "40px") 
+  			.style("font-family", "Aquifer") 
+  			.style("fill", "#360C10")
+          	.text("Language and Colonization");
+			
 			d3.select("#lineGrp").remove();
 
 			d3.selectAll(".country").classed("country-colonized", false);
@@ -334,6 +361,9 @@
 
         // zoom to show a bounding box, with optional additional padding as percentage of box size
         function boxZoom(box, centroid, paddingPerc) {
+			
+		  d3.selectAll("#header").remove();
+			
           minXY = box[0];
           maxXY = box[1];
           // find size of map area defined
@@ -396,6 +426,9 @@
           // add zoom functionality
           .call(zoom)
         ;
+		
+		
+		
         var latLongData;
   	d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
   		rawlatLongData = data;
@@ -412,6 +445,9 @@
         d3.json(
           "data.geo.json",
           function(json) {
+			  
+			  
+  		
             //Bind data and create one path per GeoJSON feature
             countriesGroup = svg.append("g").attr("id", "map");
             // add a background rectangle
@@ -437,8 +473,8 @@
               .attr("stroke", "#ff0000")
               // add a mouseover action to show name label for feature/country
               .on("mouseover", function(d, i) {
-                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block").style("z-index", "10");
-                   tooltip.style("visibility", "visible");
+                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block");
+                  tooltip.style("visibility", "visible");
 
                   function getLanguages(){
                       var i;
@@ -499,18 +535,18 @@
 			  }
 
 
-          if (rulerAmericas.UK.includes(d.properties.name)) {
+          if (d.properties.name == "United Kingdom") {
               document.getElementById("info").innerHTML = 
-                    d.properties.name+"<br> English Speakers in the World: 1500000000 <br><br>"+languages;
-          } else if (rulerAmericas.Spain.includes(d.properties.name)) {
+                    d.properties.name+"<br> <br>English Speakers in the World: 1500000000 <br><br>";
+          } else if (d.properties.name == "Spain") {
               document.getElementById("info").innerHTML = 
-                    d.properties.name+"<br> Spanish Speakers in the World: 500000000 <br><br>"+languages;
-          } else if (rulerAmericas.Portugal.includes(d.properties.name)) {
+                    d.properties.name+"<br> <br>Spanish Speakers in the World: 500000000 <br><br>";
+          } else if (d.properties.name == "Portugal") {
               document.getElementById("info").innerHTML = 
-                    d.properties.name+"<br> Portuguese Speakers in the World: 220000000 <br><br>"+languages;
-          } else if (rulerAmericas.France.includes(d.properties.name)) {
+                    d.properties.name+"<br> <br>Portuguese Speakers in the World: 220000000 <br><br>";
+          } else if (d.properties.name == "France") {
               document.getElementById("info").innerHTML = 
-                    d.properties.name+"<br> French Speakers in the World: 220000000 <br><br>"+languages;
+                    d.properties.name+"<br> <br>French Speakers in the World: 220000000 <br><br>";
           } else {
                 document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>"+languages;
@@ -521,7 +557,7 @@
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
 
 		        document.getElementById("info").innerHTML = 
-		          "<br> <br>Click on a North or South <br>American country to zoom. <br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages. <br>  <br>Click on a European country <br> to see its colonies. ";
+		          "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br>  <br>Click on a European country <br> to see its colonies.";
               })
               // add an onclick action to zoom into clicked country
               .on("click", function(d, i) {
@@ -745,7 +781,7 @@
                       { "Brazil" : "#countryBRA"}
                     var i;
                     for (i = 0; i < rulerAmericas.Portugal.length; i=i+2){
-                      console.log(rulerAmericas.Portugal[i]);
+                      //console.log(rulerAmericas.Portugal[i]);
                        d3.select(name_pairs[rulerAmericas.Portugal[i]]).classed("country-colonized", true);
                     }
 
@@ -796,8 +832,8 @@
               })
               // add mouseover functionality to the label
               .on("mouseover", function(d, i) {
-                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block").style("z-index", "10");
-                   tooltip.style("visibility", "visible");
+                  d3.select("#countryLabel" + d.properties.iso_a3).style("display", "inline-block");
+                  tooltip.style("visibility", "visible");
 
                   function getLanguages(){
                       var i;
@@ -857,29 +893,30 @@
 				
 			  }
 
-             if (rulerAmericas.UK.includes(d.properties.name)) {
+
+          if (d.properties.name == "United Kingdom") {
               document.getElementById("info").innerHTML = 
-                    d.properties.name+"<br> English Speakers in the World: 1500000000 <br><br>"+languages;
-          } else if (rulerAmericas.Spain.includes(d.properties.name)) {
+                    d.properties.name+"<br> <br>English Speakers in the World: 1500000000 <br><br>";
+          } else if (d.properties.name == "Spain") {
               document.getElementById("info").innerHTML = 
-                    d.properties.name+"<br> Spanish Speakers in the World: 500000000 <br><br>"+languages;
-          } else if (rulerAmericas.Portugal.includes(d.properties.name)) {
+                    d.properties.name+"<br> <br>Spanish Speakers in the World: 500000000 <br><br>";
+          } else if (d.properties.name == "Portugal") {
               document.getElementById("info").innerHTML = 
-                    d.properties.name+"<br> Portuguese Speakers in the World: 220000000 <br><br>"+languages;
-          } else if (rulerAmericas.France.includes(d.properties.name)) {
+                    d.properties.name+"<br> <br>Portuguese Speakers in the World: 220000000 <br><br>";
+          } else if (d.properties.name == "France") {
               document.getElementById("info").innerHTML = 
-                    d.properties.name+"<br> French Speakers in the World: 220000000 <br><br>"+languages;
+                    d.properties.name+"<br> <br>French Speakers in the World: 220000000 <br><br>";
           } else {
                 document.getElementById("info").innerHTML = 
                     d.properties.name+"<br> <br>"+languages;
           }
-          
+                    
               })
               .on("mouseout", function(d, i) {
                    d3.select(this).style("display", "none");
 				   
 		         document.getElementById("info").innerHTML = 
-		           "<br> <br>Click on a North or South <br>American country to zoom. <br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages. <br>  <br>Click on a European country <br> to see its colonies. ";
+		           "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br>  <br>Click on a European country <br> to see its colonies.";
              })
               // add an onlcick action to zoom into clicked country
               .on("click", function(d, i) {
@@ -900,10 +937,11 @@
 					d3.selectAll(".country").classed("country-on", false);
 					d3.select("#country" + d.properties.iso_a3).classed("country-on", true);
 					
-  					d3.select("#lineGrp").remove();
+					d3.select("#lineGrp").remove();
 					
-  					countryLine = svg.append("g").attr("id", "lineGrp");
-					  if (d.properties.name == "United Kingdom"){
+					countryLine = svg.append("g").attr("id", "lineGrp");
+
+          if (d.properties.name == "United Kingdom"){
             var origin = [latLongData[227].value[0], latLongData[227].value[1]];
             
             
@@ -917,6 +955,23 @@
                     destination = [latLongData[j].value[0], latLongData[j].value[1]];
                     connections = [newScale(origin), newScale(destination)];
                     
+                    //console.log(rulerAmericas.UK);
+                    name_pairs = 
+                      { "United States of America" : "#countryUSA",
+                        "Canada" : "#countryCAN",
+                        "Bahamas" : "#countryBHS",
+                        "Jamaica" : "#countryJAM",
+                        "Trinidad and Tobago" : "#countryTTO",
+                        "Barbados" : "#countryBRB",
+                        "Dominica" : "#countryDMA",
+                        "Grenada" : "#countryGRD",
+                        "Antigua and Barbuda" : "#countryATG",
+                        "Belize" : "#countryBLZ"}
+                    var i;
+                    for (i = 0; i < rulerAmericas.UK.length; i=i+2){
+                      console.log(rulerAmericas.UK[i]);
+                       d3.select(name_pairs[rulerAmericas.UK[i]]).classed("country-colonized", true);
+                    }
 
                     countryLine.append("path")
                     .data(connections)
@@ -960,6 +1015,15 @@
                     destination = [latLongData[j].value[0], latLongData[j].value[1]];
                     connections = [newScale(origin), newScale(destination)];
                     
+                    //console.log(rulerAmericas.France);
+
+                    name_pairs = 
+                      { "Haiti" : "#countryHTI"}
+                    var i;
+                    for (i = 0; i < rulerAmericas.France.length; i=i+2){
+                      console.log(rulerAmericas.France[i]);
+                       d3.select(name_pairs[rulerAmericas.France[i]]).classed("country-colonized", true);
+                    }
 
                     countryLine.append("path")
                     .data(connections)
@@ -1002,6 +1066,34 @@
                     destination = [latLongData[j].value[0], latLongData[j].value[1]];
                     connections = [newScale(origin), newScale(destination)];
                     
+                    //console.log(rulerAmericas.Spain);
+
+                    name_pairs = 
+                      { "Cuba" : "#countryCUB",
+                        "Dominican Republic" : "#countryDOM",
+                        "Mexico" : "#countryMEX",
+                        "Guatemala" : "#countryGTM",
+                        "Honduras" : "#countryHND",
+                        "El Salvador" : "#countrySLV",
+                        "Nicaragua" : "#countryNIC",
+                        "Costa Rica" : "#countryCRI",
+                        "Panama" : "#countryPAN",
+                        "Colombia" : "#countryCOL",
+                        "Venezuela" : "#countryVEN",
+                        "Guyana" : "#countryGUY",
+                        "Suriname" : "#countrySUR",
+                        "Ecuador" : "#countryECU",
+                        "Peru" : "#countryPER",
+                        "Bolivia" : "#countryBOL",
+                        "Paraguay" : "#countryPRY",
+                        "Chile" : "#countryCHL",
+                        "Argentina" : "#countryARG",
+                        "Uruguay" : "#countryURY"}
+                    var i;
+                    for (i = 0; i < rulerAmericas.Spain.length; i=i+2){
+                      console.log(rulerAmericas.Spain[i]);
+                       d3.select(name_pairs[rulerAmericas.Spain[i]]).classed("country-colonized", true);
+                    }
 
                     countryLine.append("path")
                     .data(connections)
@@ -1044,6 +1136,15 @@
                     destination = [latLongData[j].value[0], latLongData[j].value[1]];
                     connections = [newScale(origin), newScale(destination)];
                     
+                    //console.log(rulerAmericas.Portugal);
+
+                     name_pairs = 
+                      { "Brazil" : "#countryBRA"}
+                    var i;
+                    for (i = 0; i < rulerAmericas.Portugal.length; i=i+2){
+                      //console.log(rulerAmericas.Portugal[i]);
+                       d3.select(name_pairs[rulerAmericas.Portugal[i]]).classed("country-colonized", true);
+                    }
 
                     countryLine.append("path")
                     .data(connections)
@@ -1069,8 +1170,9 @@
 
                   j++;
               });
-          }
+  		    }
         }
+  					
 
       });
 
