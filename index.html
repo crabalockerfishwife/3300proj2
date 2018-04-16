@@ -126,7 +126,7 @@
 		//.style("top", ""+ $("#map-holder").width()*0.05 + "px")
 		//.style("left", "" + $("#map-holder").height()*.5 + "px");
       document.getElementById("info").innerHTML = 
-        "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br>  <br>Click on a European country <br> to see its colonies.";
+        "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br><br><text class='vulnerable'>&nbsp</text> : vulnerable<br><text class='definitely-endangered'>&nbsp</text> : definitely endangered<br><text class='severely-endangered'>&nbsp</text> : severely endangered <br><text class='critically-endangered'>&nbsp</text> : critically endangered<br><text class='extinct'>&nbsp</text> : extinct<br>  <br>Click on a European country <br> to see its colonies.";
 		
 		
         // DEFINE VARIABLES
@@ -557,7 +557,7 @@
                   d3.select("#countryLabel" + d.properties.iso_a3).style("display", "none");
 
 		        document.getElementById("info").innerHTML = 
-		          "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br>  <br>Click on a European country <br> to see its colonies.";
+		          "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br><br><text class='vulnerable'>&nbsp</text> : vulnerable<br><text class='definitely-endangered'>&nbsp</text> : definitely endangered<br><text class='severely-endangered'>&nbsp</text> : severely endangered <br><text class='critically-endangered'>&nbsp</text> : critically endangered<br><text class='extinct'>&nbsp</text> : extinct<br>  <br>Click on a European country <br> to see its colonies.";
               })
               // add an onclick action to zoom into clicked country
               .on("click", function(d, i) {
@@ -916,7 +916,7 @@
                    d3.select(this).style("display", "none");
 				   
 		         document.getElementById("info").innerHTML = 
-		           "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br>  <br>Click on a European country <br> to see its colonies.";
+		           "<br> <br>Click on a North or South <br>American country to zoom. <br><br>Hover over one of these <br>countries to see a list of its <br>vulnerable and extinct <br>languages.<br><br>Language vulnerability is <br>indicated by color and the <br>number of speakers left. <br><br><text class='vulnerable'>&nbsp</text> : vulnerable<br><text class='definitely-endangered'>&nbsp</text> : definitely endangered<br><text class='severely-endangered'>&nbsp</text> : severely endangered <br><text class='critically-endangered'>&nbsp</text> : critically endangered<br><text class='extinct'>&nbsp</text> : extinct<br>  <br>Click on a European country <br> to see its colonies.";
              })
               // add an onlcick action to zoom into clicked country
               .on("click", function(d, i) {
