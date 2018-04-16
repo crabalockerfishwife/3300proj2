@@ -238,7 +238,8 @@
         function zoomOut() {
           // Define a "minzoom" whereby the "Countries" is as small possible without leaving white space at top/bottom or sides
 			d3.select("#lineGrp").remove();
-			
+
+			d3.selectAll(".country").classed("country-colonized", false);
 			d3.selectAll(".country").classed("country-on", false);
           minZoom = Math.max($("#map-holder").width() / w, $("#map-holder").height() / h);
           // set max zoom to a suitable factor of this value
@@ -439,6 +440,9 @@
 
                   function getLanguages(){
                       var i;
+                      if (["France", "Spain", "United Kingdom", "Portugal"].includes(d.properties.name)){
+                        return "";
+                      }
                       for (i = 0; i < americanCountriesWithLang.length; i++) {
                           if (americanCountriesWithLang[i].key == d.properties.name) {
                             var j;
@@ -495,11 +499,11 @@
   				if (d.properties.name != "United Kingdom" && d.properties.name != "France" && d.properties.name != "Spain" && d.properties.name != "Portugal"
   				&& d.text != "United Kingdom" && d.text != "France" && d.text != "Spain" && d.text != "Portugal") {
                   	d3.selectAll(".country").classed("country-on", false);
+                    d3.select(this).classed("country-colonized", false);
                   	d3.select(this).classed("country-on", true);
                   	boxZoom(path.bounds(d), path.centroid(d), 20);
   				}
-				
-  				else {
+			     else {
 					zoomOut();
 					
 					
@@ -524,6 +528,23 @@
                     destination = [latLongData[j].value[0], latLongData[j].value[1]];
                     connections = [newScale(origin), newScale(destination)];
                     
+                    //console.log(rulerAmericas.UK);
+                    name_pairs = 
+                      { "United States of America" : "#countryUSA",
+                        "Canada" : "#countryCAN",
+                        "Bahamas" : "#countryBHS",
+                        "Jamaica" : "#countryJAM",
+                        "Trinidad and Tobago" : "#countryTTO",
+                        "Barbados" : "#countryBRB",
+                        "Dominica" : "#countryDMA",
+                        "Grenada" : "#countryGRD",
+                        "Antigua and Barbuda" : "#countryATG",
+                        "Belize" : "#countryBLZ"}
+                    var i;
+                    for (i = 0; i < rulerAmericas.UK.length; i=i+2){
+                      console.log(rulerAmericas.UK[i]);
+                       d3.select(name_pairs[rulerAmericas.UK[i]]).classed("country-colonized", true);
+                    }
 
                     countryLine.append("path")
                     .data(connections)
@@ -567,6 +588,15 @@
                     destination = [latLongData[j].value[0], latLongData[j].value[1]];
                     connections = [newScale(origin), newScale(destination)];
                     
+                    //console.log(rulerAmericas.France);
+
+                    name_pairs = 
+                      { "Haiti" : "#countryHTI"}
+                    var i;
+                    for (i = 0; i < rulerAmericas.France.length; i=i+2){
+                      console.log(rulerAmericas.France[i]);
+                       d3.select(name_pairs[rulerAmericas.France[i]]).classed("country-colonized", true);
+                    }
 
                     countryLine.append("path")
                     .data(connections)
@@ -609,6 +639,34 @@
                     destination = [latLongData[j].value[0], latLongData[j].value[1]];
                     connections = [newScale(origin), newScale(destination)];
                     
+                    //console.log(rulerAmericas.Spain);
+
+                    name_pairs = 
+                      { "Cuba" : "#countryCUB",
+                        "Dominican Republic" : "#countryDOM",
+                        "Mexico" : "#countryMEX",
+                        "Guatemala" : "#countryGTM",
+                        "Honduras" : "#countryHND",
+                        "El Salvador" : "#countrySLV",
+                        "Nicaragua" : "#countryNIC",
+                        "Costa Rica" : "#countryCRI",
+                        "Panama" : "#countryPAN",
+                        "Colombia" : "#countryCOL",
+                        "Venezuela" : "#countryVEN",
+                        "Guyana" : "#countryGUY",
+                        "Suriname" : "#countrySUR",
+                        "Ecuador" : "#countryECU",
+                        "Peru" : "#countryPER",
+                        "Bolivia" : "#countryBOL",
+                        "Paraguay" : "#countryPRY",
+                        "Chile" : "#countryCHL",
+                        "Argentina" : "#countryARG",
+                        "Uruguay" : "#countryURY"}
+                    var i;
+                    for (i = 0; i < rulerAmericas.Spain.length; i=i+2){
+                      console.log(rulerAmericas.Spain[i]);
+                       d3.select(name_pairs[rulerAmericas.Spain[i]]).classed("country-colonized", true);
+                    }
 
                     countryLine.append("path")
                     .data(connections)
@@ -651,6 +709,15 @@
                     destination = [latLongData[j].value[0], latLongData[j].value[1]];
                     connections = [newScale(origin), newScale(destination)];
                     
+                    //console.log(rulerAmericas.Portugal);
+
+                     name_pairs = 
+                      { "Brazil" : "#countryBRA"}
+                    var i;
+                    for (i = 0; i < rulerAmericas.Portugal.length; i=i+2){
+                      console.log(rulerAmericas.Portugal[i]);
+                       d3.select(name_pairs[rulerAmericas.Portugal[i]]).classed("country-colonized", true);
+                    }
 
                     countryLine.append("path")
                     .data(connections)
@@ -757,8 +824,11 @@
               .on("click", function(d, i) {
     				if (d.properties.name != "United Kingdom" && d.properties.name != "France" && d.properties.name != "Spain" && d.properties.name != "Portugal"
     				&& d.text != "United Kingdom" && d.text != "France" && d.text != "Spain" && d.text != "Portugal") {
+
 						d3.selectAll(".country").classed("country-on", false);
 						d3.select("#country" + d.properties.iso_a3).classed("country-on", true);
+						d3.select(this).classed("country-colonized", false);
+                   
                     	boxZoom(path.bounds(d), path.centroid(d), 20);
     				}
 				
