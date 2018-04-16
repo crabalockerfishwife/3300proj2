@@ -2,20 +2,20 @@
 
 body {
   margin: 0;
-  background-color: #E6EED6;
+  background-color: #F2F5EB;
   font-family: 'Aquifer', sans-serif;
   font-weight: 200;
   font-size: 17px;
 }
 #map-holder {
   width: 100vw;
-  height: 120vh;
+  height: 100vh;
 }
 svg rect {
-  fill: #E6EED6;   /* map background colour */
+  fill: #F2F5EB;   /* map background colour */
 }
 .country{
-  fill: #BBC5AA;   /* country colour */
+  fill: #D1D7C6;   /* country colour */
   stroke: #4A5043; /* country border colour */
   stroke-width: 1; /* country border width */
 }
@@ -26,8 +26,9 @@ svg rect {
   display: none;   /* hide all country labels by default */
 }
 .countryName{
-  fill: #3B0D11;   /* country label text colour */
+  fill: #360C10;   /* country label text colour #3B0D11; */
 }
 .countryLabelBg{
-  fill: white;   /* country label background colour */
+  fill: #D1D7C6;   /* country label background colour */
 }
+
