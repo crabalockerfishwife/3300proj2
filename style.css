@@ -1,4 +1,4 @@
-/* Obtained color scheme from https://coolors.co/e6eed6-3b0d11-bbc5aa-6a3937-4a5043 */
+/* Obtained color scheme from https://coolors.co/e6eed6-3b0d11-bbc5aa-855d5b-4a5043 */
 @font-face { font-family: Aquifer; src: url('Aquifer.otf'); } 
 
 #information {
@@ -22,4 +22,8 @@
 	font-family: 'Aquifer', sans-serif;
 	font-size: 20px;
 	fill: #360C10;
+}
+
+.country-colonized{
+  fill: #855d5b;   /* highlight colour for selected country */
 }
