@@ -239,6 +239,7 @@
 		
         function zoomOut() {
           // Define a "minzoom" whereby the "Countries" is as small possible without leaving white space at top/bottom or sides
+			d3.select("#lineGrp").remove();
 			
 			d3.selectAll(".country").classed("country-on", false);
           minZoom = Math.max($("#map-holder").width() / w, $("#map-holder").height() / h);
