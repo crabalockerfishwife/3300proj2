@@ -32,8 +32,8 @@
     
 	<script>
 
-// Code to populate the value array (of extinct languages) associated with an American country key
-      function populate(americanCountries, rawExtinctData, americanCountriesWithLang) {
+		// Code to populate the value array (of extinct languages) associated with an American country key
+		function populate(americanCountries, rawExtinctData, americanCountriesWithLang) {
           var i;
           for (i = 0; i < americanCountries.length; i++) {
               //console.log(americanCountries[i]);
@@ -42,9 +42,9 @@
                   //console.log(rawExtinctData[j].countriesWithLang.split(", "));
                   if (rawExtinctData[j].countriesWithLang.split(", ").includes(americanCountries[i])){
                     try{
-                      		americanCountriesWithLang[i].value.push(rawExtinctData[j].language+"|"+rawExtinctData[j].vulnerability+"|"+rawExtinctData[j].speakers);
-                    } catch(e) {
-
+           		americanCountriesWithLang[i].value.push(rawExtinctData[j].language+"|"+rawExtinctData[j].vulnerability+"|"+rawExtinctData[j].speakers);
+                    } 
+					catch(e) {
                     }
                   }
               }
@@ -68,16 +68,16 @@
         };
       };
       
-      function parseAmericanCountries(row) {    
+	  function parseAmericanCountries(row) {    
         result.push(row["Country"]);
         return result;   
       };
       
-      d3.csv("extinctlangs.csv", parseExtinctData, function(error, extinct){
+	  d3.csv("extinctlangs.csv", parseExtinctData, function(error, extinct){
         rawExtinctData = extinct;
       });
-        
-      d3.csv("AmericanCountries.csv", parseAmericanCountries, function(error, amer){
+	  
+	  d3.csv("AmericanCountries.csv", parseAmericanCountries, function(error, amer){
          americanCountries = result;
          var j = 0;
          americanCountries.forEach(function(){
@@ -98,15 +98,16 @@
           });
         
         });
-      setTimeout(function() { callback(americanCountries, rawExtinctData, americanCountriesWithLang); }, 2000);
-    }
-    initialDataParsing(populate);
+      	setTimeout(function() { callback(americanCountries, rawExtinctData, americanCountriesWithLang); }, 2000);
+   	 }
+    
+		initialDataParsing(populate);
 
 
         //The following code was modelled of off: https://medium.com/@andybarefoot/making-a-map-using-d3-js-8aa3637304ee
 		//However we have made extensive changes
 
-        var tooltip = d3.select("body")
+		var tooltip = d3.select("body")
         .append("div")
         .style("position", "absolute")
         .style("top", "100px")
@@ -133,7 +134,6 @@
         var countryLine;
         var allButtons;
 		var title;
-		
 
         // DEFINE FUNCTIONS/OBJECTS
         // Define map projection
@@ -257,8 +257,7 @@
           // set translate extent so that panning can't cause map to move out of viewport
           zoom
             .scaleExtent([minZoom, maxZoom])
-            .translateExtent([[0, 0], [w, h]])
-          ;
+		  .translateExtent([[0, 0], [w, h]]);
           // define X and Y offset for centre of map to be shown in centre of holder
           midX = ($("#map-holder").width() - minZoom * w) / 2;
           midY = ($("#map-holder").height() - minZoom * h) / 2;
@@ -273,15 +272,15 @@
             var labels= ['zoom out'];
 
             //groups for each button (which will hold a rect and text)
-                buttonGroups = allButtons.selectAll("g.button")
-                                  .data(labels)
-                                  .enter()
-                      .append("g")
-                          .attr("class","button")
-                      .style("cursor","pointer")           
-                                  .on("click",function(d,i) {
-                                      zoomOut();
-                                  });
+            buttonGroups = allButtons.selectAll("g.button")
+            .data(labels)
+            .enter()
+            .append("g")
+            .attr("class","button")
+            .style("cursor","pointer")           
+            .on("click",function(d,i) {
+            	zoomOut();
+              });
     
             var bWidth= 75;
             var bHeight= 20;
@@ -290,35 +289,32 @@
             var y0= $("#map-holder").height()*.90;
 
             buttonGroups.append("rect")
-                        .attr("class","buttonRect")
-                        .attr("width",bWidth)
-                        .attr("height",bHeight)
-                        .attr("x",function(d,i) {
-                            return x0+(bWidth+bSpace)*i;
-                        })
-                        .attr("y",y0)
-                        .attr("rx",5) 
-                        .attr("ry",5)
-                        .attr("fill","#6A3937");
+            .attr("class","buttonRect")
+            .attr("width",bWidth)
+            .attr("height",bHeight)
+            .attr("x",function(d,i) {
+                 return x0+(bWidth+bSpace)*i;
+             })
+             .attr("y",y0)
+             .attr("rx",5) 
+             .attr("ry",5)
+             .attr("fill","#6A3937");
 
             //adding text
             buttonGroups.append("text")
-                        .attr("class","buttonText")
-                        .attr("font-family","Aquifer")
-						.attr("font-size", 13)
-                        .attr("x",function(d,i) {
-                            return x0 + (bWidth+bSpace)*i + bWidth/2;
-                        })
-                        .attr("y",y0+bHeight/2)
-                        .attr("text-anchor","middle")
-                        .attr("dominant-baseline","central")
-                        .attr("fill","#360C10")
-                        .text(function(d) {return d;});
-                  }
-                
-
-		
-
+            .attr("class","buttonText")
+            .attr("font-family","Aquifer")
+			.attr("font-size", 13)
+            .attr("x",function(d,i) {
+                 return x0 + (bWidth+bSpace)*i + bWidth/2;
+            })
+            .attr("y",y0+bHeight/2)
+            .attr("text-anchor","middle")
+            .attr("dominant-baseline","central")
+            .attr("fill","#360C10")
+            .text(function(d) {return d;});
+			}
+        
         // zoom to show a bounding box, with optional additional padding as percentage of box size
         function boxZoom(box, centroid, paddingPerc) {
 			
@@ -387,14 +383,14 @@
 
         var latLongData;
 		
-  	d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
-  		rawlatLongData = data;
-		latLongData = [];
-      	var i = 0;
-      	rawlatLongData.forEach(function(){
-        latLongData.push({key: rawlatLongData[i].countryName, value: [rawlatLongData[i].longitude, rawlatLongData[i].latitude]});
-        i++;
-      });
+		d3.csv("Country_Latitude_Longitude.csv", parseLatLongData, function(error, data){
+  			rawlatLongData = data;
+			latLongData = [];
+      		var i = 0;
+      		rawlatLongData.forEach(function(){
+        		latLongData.push({key: rawlatLongData[i].countryName, value: [rawlatLongData[i].longitude, rawlatLongData[i].latitude]});
+        		i++;
+      	  	});
 
         // get map data
         d3.json(
@@ -470,24 +466,23 @@
 				  
 				  //Right now this functionality is not being implemented on purpose
                   if (languages == null){
-					  if(d.properties.name == "United Kingdom") {
+					  if (d.properties.name == "United Kingdom") {
                     	languages = "Empire from 1583 - 1997";
+					  }
+					else if (d.properties.name == "France") {
+                  		languages = "Empire from 1534 - 1980";
+				    }
+			  	  	else if (d.properties.name == "Spain") {
+                		languages = "Empire from 1492 - 1975";
+				    }
+		  	     	else if (d.properties.name == "Portugal") {
+              		 	languages = "Empire from 1415 - 1999";
 					}
-				  else if (d.properties.name == "France") {
-                  	languages = "Empire from 1534 - 1980";
-				}
-				
-			  	 else if (d.properties.name == "Spain") {
-                	languages = "Empire from 1492 - 1975";
-				}
-		  	  else if (d.properties.name == "Portugal") {
-              	languages = "Empire from 1415 - 1999";
-				}
-				else {
+					else {
 					languages = "None";
-				}
+					}
 				
-			  }
+			  	}
 
 			  //Display number speakers for empire countries
           if (d.properties.name == "United Kingdom") {
@@ -529,7 +524,6 @@
 					
                   	d3.selectAll(".country").classed("country-on", false);
                   	d3.select(this).classed("country-on", true);
-					
 					d3.select("#lineGrp").remove();
 					
 					countryLine = svg.append("g").attr("id", "lineGrp");
@@ -799,24 +793,22 @@
 				  
 				  //This functionality is not being implemented right now on purpose
                   if (languages == null){
-					  if(d.properties.name == "United Kingdom") {
+					  if (d.properties.name == "United Kingdom") {
                     	languages = "Empire from 1583 - 1997";
-					}
-				  else if (d.properties.name == "France") {
-                  	languages = "Empire from 1534 - 1980";
-				}
-				
-			  	 else if (d.properties.name == "Spain") {
-                	languages = "Empire from 1492 - 1975";
-				}
-		  	  else if (d.properties.name == "Portugal") {
-              	languages = "Empire from 1415 - 1999";
-				}
-				else {
+					  }
+				  	  else if (d.properties.name == "France") {
+                  		  languages = "Empire from 1534 - 1980";
+				      }
+			  	     else if (d.properties.name == "Spain") {
+                		 languages = "Empire from 1492 - 1975";
+				     }
+		  	  	   	else if (d.properties.name == "Portugal") {
+              			languages = "Empire from 1415 - 1999";
+				     }
+					 else {
 					languages = "None";
-				}
-				
-			  }
+				     }
+			  	}
 
 			  //Add number of speakers for empire countries
           if (d.properties.name == "United Kingdom") {
