@@ -21,6 +21,8 @@
   	fill: #855d5b;   /* highlight colour for selected country */
 }
 
+/* Colors for the ordinal scale of language vulnerability */
+
 .vulnerable {
 	background-color: #FFFF00;
 }
