@@ -2,7 +2,7 @@
 
 Currently hosted at http://smilniki.com/language (works best on Chrome and Safari)
 
-For data-driven web applications class at Cornell 
+For data-driven web applications class 
 by Sofia Milnikiewicz, Pablo Llambias, and Karson Daecher
 
 Data and code sources: 
